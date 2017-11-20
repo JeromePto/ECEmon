@@ -1,0 +1,7 @@
+creature
+Kevin
+100
+1
+Coup de bite
+5
+01000

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Ecemon 1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Ecemon 1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Ecemon 1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Attaque.cpp" />
+		<Unit filename="Attaque.h" />
+		<Unit filename="CarteFixe.cpp" />
+		<Unit filename="CarteFixe.h" />
+		<Unit filename="Cimetiere.cpp" />
+		<Unit filename="Cimetiere.h" />
+		<Unit filename="Collection.cpp" />
+		<Unit filename="Collection.h" />
+		<Unit filename="CreatureFixe.cpp" />
+		<Unit filename="CreatureFixe.h" />
+		<Unit filename="CreatureJeu.cpp" />
+		<Unit filename="CreatureJeu.h" />
+		<Unit filename="Deck.cpp" />
+		<Unit filename="Deck.h" />
+		<Unit filename="EnergieFixe.cpp" />
+		<Unit filename="EnergieFixe.h" />
+		<Unit filename="EnergieJeu.cpp" />
+		<Unit filename="EnergieJeu.h" />
+		<Unit filename="Enjeu.cpp" />
+		<Unit filename="Enjeu.h" />
+		<Unit filename="JoueurMenu.cpp" />
+		<Unit filename="JoueurMenu.h" />
+		<Unit filename="JoueurPartie.cpp" />
+		<Unit filename="JoueurPartie.h" />
+		<Unit filename="Match.cpp" />
+		<Unit filename="Match.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
+		<Unit filename="Pioche.cpp" />
+		<Unit filename="Pioche.h" />
+		<Unit filename="SpecialeCourteFixe.cpp" />
+		<Unit filename="SpecialeCourteFixe.h" />
+		<Unit filename="SpecialeFixe.cpp" />
+		<Unit filename="SpecialeFixe.h" />
+		<Unit filename="SpecialePermanenteFixe.cpp" />
+		<Unit filename="SpecialePermanenteFixe.h" />
+		<Unit filename="SpecialePermanenteJeu.cpp" />
+		<Unit filename="SpecialePermanenteJeu.h" />
+		<Unit filename="codeSpeciale.cpp" />
+		<Unit filename="codeSpeciale.h" />
+		<Unit filename="divers.cpp" />
+		<Unit filename="divers.h" />
+		<Unit filename="enum.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

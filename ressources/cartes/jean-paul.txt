@@ -1,0 +1,10 @@
+creature
+Jean-Paul
+200
+2
+Coup de poing
+10
+10000
+Coup de pied
+20
+20000
