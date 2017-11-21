@@ -19,7 +19,7 @@ Menu::~Menu()
     }
 }
 
-short Menu::chargerCartes()
+short Menu::loadCartes()
 {
     std::string ligne;
     std::vector<std::string> listeCarte;
@@ -95,6 +95,101 @@ short Menu::chargerCartes()
 
     return sortie;
 }
+
+short Menu::loadJoueur()
+{
+    std::string ligne;
+    std::vector<std::string> listeJoueur;
+    std::ifstream fichier;
+    short sortie(0);
+
+    fichier.open("ressources/joueurs.txt", std::ios_base::in);
+
+    if(fichier)
+    {
+        while(std::getline(fichier, ligne))
+        {
+            listeJoueur.push_back(ligne);
+        }
+
+        fichier.close();
+
+        for(unsigned short i = 0 ; i < listeJoueur.size() ; ++i)
+        {
+            fichier.open("ressources/joueurs/" + listeJoueur[i] + ".txt", std::ios_base::in);
+
+            std::cout << "Loading " << listeJoueur[i] << " : ";
+
+            if(fichier)
+            {
+                m_joueur.push_back(JoueurMenu());
+                m_joueur[i].initFichier(fichier);
+
+                std::cout << "OK" << std::endl;
+
+                fichier.close();
+            }
+            else
+            {
+                std::cerr << "Error opening element card file" << std::endl;
+                sortie = -2;
+            }
+        }
+    }
+    else
+    {
+        std::cerr << "Error opening main player file" << std::endl;
+        sortie = -1;
+    }
+
+    return sortie;
+}
+
+void Menu::loadFichier()
+{
+    loadCartes();
+    Equivalence::init(m_carte);
+    loadJoueur();
+}
+
+void Menu::saveJoueur()
+{
+    std::ofstream fichier;
+
+    fichier.open("ressources/joueurs.txt", std::ios_base::out);
+
+    if(fichier)
+    {
+        fichier << m_joueur.size() << std::endl;
+
+        fichier.close();
+
+        for(unsigned short i = 0 ; i < m_joueur.size() ; ++i)
+        {
+            fichier.open("ressources/joueurs/" + m_joueur[i].getNom() + ".txt", std::ios_base::out);
+
+            std::cout << "Saving " << m_joueur[i].getNom() << " : ";
+
+            if(fichier)
+            {
+                m_joueur[i].saveFichier(fichier);
+
+                std::cout << "OK" << std::endl;
+
+                fichier.close();
+            }
+            else
+            {
+                std::cerr << "Error opening element card file" << std::endl;
+            }
+        }
+    }
+    else
+    {
+        std::cerr << "Error opening main player file" << std::endl;
+    }
+}
+
 
 void Menu::displayAll() const
 {

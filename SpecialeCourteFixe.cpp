@@ -11,8 +11,8 @@ SpecialeCourteFixe::SpecialeCourteFixe()
 
 }
 
-SpecialeCourteFixe::SpecialeCourteFixe(std::string nom, std::string description, void(* code)(Match * match))
-    :SpecialeFixe(nom, description, code)
+SpecialeCourteFixe::SpecialeCourteFixe(std::string nom, unsigned int id, std::string description, void(* code)(Match * match))
+    :SpecialeFixe(nom, id, description, code)
 {
 
 }

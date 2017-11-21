@@ -11,8 +11,8 @@ CreatureFixe::CreatureFixe()
 
 }
 
-CreatureFixe::CreatureFixe(std::string nom, int PV, std::vector<Attaque> attaque)
-    :CarteFixe(nom), m_PV(PV), m_attaque(attaque)
+CreatureFixe::CreatureFixe(std::string nom, unsigned int id, int PV, std::vector<Attaque> attaque)
+    :CarteFixe(nom, id), m_PV(PV), m_attaque(attaque)
 {
 
 }
@@ -22,9 +22,9 @@ CreatureFixe::~CreatureFixe()
 
 }
 
-void CreatureFixe::init(std::string nom, int PV, std::vector<Attaque> attaque)
+void CreatureFixe::init(std::string nom, unsigned int id, int PV, std::vector<Attaque> attaque)
 {
-    CarteFixe::init(nom);
+    CarteFixe::init(nom, id);
     m_PV = PV;
     m_attaque = attaque;
 }
@@ -32,11 +32,15 @@ void CreatureFixe::init(std::string nom, int PV, std::vector<Attaque> attaque)
 void CreatureFixe::initFichier(std::ifstream & fichier)
 {
     std::string ligne;
+    std::string tmp;
     short nbAttaque(0);
 
     //Lecture nom
+    std::getline(fichier, tmp);
+
+    //Lecture ID
     std::getline(fichier, ligne);
-    CarteFixe::init(ligne);
+    CarteFixe::init(tmp, atoi(ligne.c_str()));
 
     //Lecture PV
     std::getline(fichier, ligne);
@@ -57,6 +61,7 @@ void CreatureFixe::initFichier(std::ifstream & fichier)
 void CreatureFixe::displayAll() const
 {
     std::cout << "Creature : " << m_nom << std::endl;
+    std::cout << "ID = " << m_id << std::endl;
     std::cout << "PV = " << m_PV << std::endl;
 
     for(unsigned short i = 0 ; i < m_attaque.size() ; i++)

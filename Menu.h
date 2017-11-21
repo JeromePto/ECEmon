@@ -23,6 +23,7 @@
 #include "SpecialeFixe.h"
 #include "SpecialeCourteFixe.h"
 #include "SpecialePermanenteFixe.h"
+#include "Equivalence.h"
 
 class Menu {
 private:
@@ -34,7 +35,11 @@ public:
 
     ~Menu();
 
-    short chargerCartes();
+    short loadCartes();
+    short loadJoueur();
+    void loadFichier();
+
+    void saveJoueur();
 
     void displayAll() const;
 
