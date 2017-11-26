@@ -2,26 +2,21 @@
 
 namespace Equivalence
 {
-    std::multimap<CarteFixe const*, unsigned int> m_carte;
+    std::map<unsigned int, CarteFixe const*> m_carte;
 
     void init(std::vector<CarteFixe*>carte)
     {
         for(auto it : carte)
         {
-            m_carte.insert(std::pair<CarteFixe const*, unsigned int>(it, it->getID()));
+            m_carte.insert(std::pair<unsigned int, CarteFixe const*>(it->getID(), it));
         }
     }
 
     CarteFixe const* toPointer(unsigned int id)
     {
         CarteFixe const* sortie(nullptr);
-        for(auto it : m_carte)
-        {
-            if(it.second == id)
-            {
-                sortie = it.first;
-            }
-        }
+
+        sortie = m_carte[id];
 
         return sortie;
     }
