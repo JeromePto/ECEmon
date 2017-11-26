@@ -6,6 +6,7 @@
 #ifndef _JOUEURMENU_H
 #define _JOUEURMENU_H
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <fstream>
@@ -23,6 +24,7 @@ private:
 
 public:
     JoueurMenu();
+    JoueurMenu(std::string const& nom);
 
     ~JoueurMenu();
 
@@ -31,6 +33,10 @@ public:
     void saveFichier(std::ofstream & fichier);
 
     std::string getNom() const;
+
+    void displayAll() const;
+    void displayCourt() const;
+
 };
 
 #endif //_JOUEURMENU_H

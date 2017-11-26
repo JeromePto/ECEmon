@@ -13,7 +13,6 @@
 
 #include "CarteFixe.h"
 #include "codeSpeciale.h"
-#include "Match.h"
 
 class SpecialePermanenteFixe;
 
@@ -37,6 +36,7 @@ public:
     virtual bool isPermanente() const = 0;
 
     void displayAll() const;
+    void displayNom() const;
 };
 
 #endif //_SPECIALEFIXE_H

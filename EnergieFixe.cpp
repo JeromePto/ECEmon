@@ -66,3 +66,8 @@ void EnergieFixe::displayAll() const
         break;
     }
 }
+
+void EnergieFixe::displayNom() const
+{
+    std::cout << "Energie : " << m_nom << std::endl;
+}

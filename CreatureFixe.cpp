@@ -70,3 +70,8 @@ void CreatureFixe::displayAll() const
         m_attaque[i].dispalayAll();
     }
 }
+
+void CreatureFixe::displayNom() const
+{
+    std::cout << "Creature : " << m_nom << std::endl;
+}

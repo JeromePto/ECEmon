@@ -39,11 +39,43 @@ void Collection::initFichier(std::ifstream& fichier)
 
 }
 
-void Collection::saveFichier(std::ofstream& fichier)
+void Collection::saveFichier(std::ofstream& fichier) const
 {
     fichier <<  m_carte.size() << std::endl;
     for(auto it : m_carte)
     {
         fichier << Equivalence::toID(it) << std::endl;
+    }
+}
+
+void Collection::setPD()
+{
+    std::ifstream fichier("ressources/collectionPD.txt", std::ios_base::out);
+    if(fichier)
+    {
+        initFichier(fichier);
+    }
+    else
+    {
+        exit(-5);
+    }
+}
+
+void Collection::displayAll() const
+{
+    std::cout << "Collection : " << m_carte.size() << " cartes" << std::endl << std::endl;
+    for(std::vector<CarteFixe const*>::const_iterator it = m_carte.cbegin() ; it != m_carte.cend() ; ++it)
+    {
+        (*it)->displayAll();
+        std::cout << std::endl;
+    }
+}
+
+void Collection::displayNom() const
+{
+    std::cout << "Collection : " << m_carte.size() << " cartes" << std::endl << std::endl;
+    for(std::vector<CarteFixe const*>::const_iterator it = m_carte.cbegin() ; it != m_carte.cend() ; ++it)
+    {
+        (*it)->displayNom();
     }
 }

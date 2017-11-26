@@ -27,6 +27,7 @@ public:
     unsigned int getID() const;
 
     virtual void displayAll() const = 0;
+    virtual void displayNom() const = 0;
 };
 
 #endif //_CARTEFIXE_H

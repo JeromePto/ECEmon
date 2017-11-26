@@ -29,6 +29,7 @@ class Menu {
 private:
 	std::vector<JoueurMenu> m_joueur;
 	std::vector<CarteFixe*> m_carte;
+	bool existNom(std::string const& nom);
 
 public:
     Menu();
@@ -41,7 +42,10 @@ public:
 
     void saveJoueur();
 
-    void displayAll() const;
+    void displayCartes() const;
+    void displayJoueurs() const;
+
+    void CreerJoueur();
 
 };
 

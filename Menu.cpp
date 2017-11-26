@@ -5,6 +5,21 @@
 
 #include "Menu.h"
 
+bool Menu::existNom(std::string const& nom)
+{
+    bool sortie(false);
+
+    for(std::vector<JoueurMenu>::const_iterator it = m_joueur.cbegin() ; it != m_joueur.cend() ; ++it)
+    {
+        if(it->getNom() == nom)
+        {
+            sortie = true;
+        }
+    }
+
+    return sortie;
+}
+
 Menu::Menu()
     :m_joueur(), m_carte()
 {
@@ -131,15 +146,15 @@ short Menu::loadJoueur()
             }
             else
             {
-                std::cerr << "Error opening element card file" << std::endl;
-                sortie = -2;
+                std::cerr << "Error opening element player file" << std::endl;
+                sortie = -4;
             }
         }
     }
     else
     {
         std::cerr << "Error opening main player file" << std::endl;
-        sortie = -1;
+        sortie = -3;
     }
 
     return sortie;
@@ -147,9 +162,20 @@ short Menu::loadJoueur()
 
 void Menu::loadFichier()
 {
-    loadCartes();
+    short erreur(-7);
+
+    erreur = loadCartes();
+    if(erreur < 0)
+    {
+        exit(erreur);
+    }
+
     Equivalence::init(m_carte);
-    loadJoueur();
+
+    if(loadJoueur() < 0)
+    {
+        m_joueur.clear();
+    }
 }
 
 void Menu::saveJoueur()
@@ -160,7 +186,10 @@ void Menu::saveJoueur()
 
     if(fichier)
     {
-        fichier << m_joueur.size() << std::endl;
+        for(unsigned short i = 0 ; i < m_joueur.size() ; ++i)
+        {
+            fichier << m_joueur[i].getNom() << std::endl;
+        }
 
         fichier.close();
 
@@ -191,7 +220,7 @@ void Menu::saveJoueur()
 }
 
 
-void Menu::displayAll() const
+void Menu::displayCartes() const
 {
     for(unsigned int i = 0 ; i < m_carte.size() ; ++i)
     {
@@ -199,3 +228,43 @@ void Menu::displayAll() const
         std::cout << std::endl;
     }
 }
+
+void Menu::displayJoueurs() const
+{
+    for(unsigned int i = 0 ; i < m_joueur.size() ; ++i)
+    {
+        m_joueur[i].displayCourt();
+        std::cout << std::endl;
+    }
+}
+
+void Menu::CreerJoueur()
+{
+    std::string nom;
+    bool tmp(false);
+
+    do
+    {
+        std::cout << "Nom du joueur : ";
+        getline(std::cin, nom);
+
+        tmp = false;
+
+        if(existNom(nom))
+        {
+            std::cout << "Nom deja utilisee" << std::endl;
+            tmp = true;
+        }
+        if(!Divers::isPrint(nom))
+        {
+            std::cout << "Erreur de saisie" << std::endl;
+            tmp = true;
+        }
+
+    }while(tmp);
+
+    m_joueur.push_back(JoueurMenu(nom));
+
+    saveJoueur();
+}
+

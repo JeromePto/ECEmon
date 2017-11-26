@@ -11,6 +11,15 @@ JoueurMenu::JoueurMenu()
 
 }
 
+JoueurMenu::JoueurMenu(std::string const& nom)
+    :m_nom(nom) , m_collection(), m_deck(), m_argent(1000)
+{
+    Deck tmp;
+    tmp.setPD();
+    m_collection.setPD();
+    m_deck.push_back(tmp);
+}
+
 JoueurMenu::~JoueurMenu()
 {
 
@@ -57,10 +66,40 @@ void JoueurMenu::saveFichier(std::ofstream& fichier)
 {
     fichier << m_nom << std::endl;
     fichier << m_argent << std::endl;
-
+    m_collection.saveFichier(fichier);
+    fichier << m_deck.size() << std::endl;
+    for(unsigned int i = 0 ; i < m_deck.size() ; ++i)
+    {
+        m_deck[i].saveFichier(fichier);
+    }
 }
 
 std::string JoueurMenu::getNom() const
 {
     return m_nom;
+}
+
+void JoueurMenu::displayAll() const
+{
+    std::cout << "Joueur : " << m_nom << std::endl;
+    std::cout << "Argent : " << m_argent << std::endl;
+    m_collection.displayAll();
+    std::cout << m_deck.size() << " decks :" << std::endl;
+    for(unsigned int i = 0 ; i < m_deck.size() ; ++i)
+    {
+        m_deck[i].displayAll();
+    }
+}
+
+void JoueurMenu::displayCourt() const
+{
+    std::cout << "Joueur : " << m_nom << std::endl;
+    std::cout << "Argent : " << m_argent << std::endl;
+    m_collection.displayNom();
+    std::cout << std::endl;
+    std::cout << m_deck.size() << " decks :" << std::endl << std::endl;
+    for(unsigned int i = 0 ; i < m_deck.size() ; ++i)
+    {
+        m_deck[i].displayNom();
+    }
 }

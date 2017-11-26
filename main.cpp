@@ -36,9 +36,8 @@ int main()
     Menu menu;
     menu.loadFichier();
 
-    menu.displayAll();
-
-    menu.saveJoueur();
+    menu.displayCartes();
+    menu.displayJoueurs();
 
     return 0;
 }

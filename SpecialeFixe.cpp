@@ -91,3 +91,8 @@ void SpecialeFixe::displayAll() const
     }
     std::cout << m_description << std::endl;
 }
+
+void SpecialeFixe::displayNom() const
+{
+    std::cout << "Speciale : " << m_nom << std::endl;
+}

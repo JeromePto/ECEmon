@@ -29,6 +29,7 @@ public:
     void initFichier(std::ifstream & fichier);
 
     void displayAll() const;
+    void displayNom() const;
 };
 
 #endif //_ENERGIEFIXE_H
