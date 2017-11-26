@@ -26,15 +26,18 @@
 #include "SpecialeFixe.h"
 #include "SpecialePermanenteFixe.h"
 #include "SpecialePermanenteJeu.h"
+#include "Equivalence.h"
 
 using namespace std;
 
 int main()
 {
-    Menu menu;
-    menu.chargerCartes();
 
-    menu.displayAll();
+    Menu menu;
+    menu.loadFichier();
+
+    menu.displayCartes();
+    menu.displayJoueurs();
 
     return 0;
 }

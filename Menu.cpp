@@ -5,6 +5,21 @@
 
 #include "Menu.h"
 
+bool Menu::existNom(std::string const& nom)
+{
+    bool sortie(false);
+
+    for(std::vector<JoueurMenu>::const_iterator it = m_joueur.cbegin() ; it != m_joueur.cend() ; ++it)
+    {
+        if(it->getNom() == nom)
+        {
+            sortie = true;
+        }
+    }
+
+    return sortie;
+}
+
 Menu::Menu()
     :m_joueur(), m_carte()
 {
@@ -19,7 +34,7 @@ Menu::~Menu()
     }
 }
 
-short Menu::chargerCartes()
+short Menu::loadCartes()
 {
     std::string ligne;
     std::vector<std::string> listeCarte;
@@ -96,7 +111,116 @@ short Menu::chargerCartes()
     return sortie;
 }
 
-void Menu::displayAll() const
+short Menu::loadJoueur()
+{
+    std::string ligne;
+    std::vector<std::string> listeJoueur;
+    std::ifstream fichier;
+    short sortie(0);
+
+    fichier.open("ressources/joueurs.txt", std::ios_base::in);
+
+    if(fichier)
+    {
+        while(std::getline(fichier, ligne))
+        {
+            listeJoueur.push_back(ligne);
+        }
+
+        fichier.close();
+
+        for(unsigned short i = 0 ; i < listeJoueur.size() ; ++i)
+        {
+            fichier.open("ressources/joueurs/" + listeJoueur[i] + ".txt", std::ios_base::in);
+
+            std::cout << "Loading " << listeJoueur[i] << " : ";
+
+            if(fichier)
+            {
+                m_joueur.push_back(JoueurMenu());
+                m_joueur[i].initFichier(fichier);
+
+                std::cout << "OK" << std::endl;
+
+                fichier.close();
+            }
+            else
+            {
+                std::cerr << "Error opening element player file" << std::endl;
+                sortie = -4;
+            }
+        }
+    }
+    else
+    {
+        std::cerr << "Error opening main player file" << std::endl;
+        sortie = -3;
+    }
+
+    return sortie;
+}
+
+void Menu::loadFichier()
+{
+    short erreur(-7);
+
+    erreur = loadCartes();
+    if(erreur < 0)
+    {
+        exit(erreur);
+    }
+
+    Equivalence::init(m_carte);
+
+    if(loadJoueur() < 0)
+    {
+        m_joueur.clear();
+    }
+}
+
+void Menu::saveJoueur()
+{
+    std::ofstream fichier;
+
+    fichier.open("ressources/joueurs.txt", std::ios_base::out);
+
+    if(fichier)
+    {
+        for(unsigned short i = 0 ; i < m_joueur.size() ; ++i)
+        {
+            fichier << m_joueur[i].getNom() << std::endl;
+        }
+
+        fichier.close();
+
+        for(unsigned short i = 0 ; i < m_joueur.size() ; ++i)
+        {
+            fichier.open("ressources/joueurs/" + m_joueur[i].getNom() + ".txt", std::ios_base::out);
+
+            std::cout << "Saving " << m_joueur[i].getNom() << " : ";
+
+            if(fichier)
+            {
+                m_joueur[i].saveFichier(fichier);
+
+                std::cout << "OK" << std::endl;
+
+                fichier.close();
+            }
+            else
+            {
+                std::cerr << "Error opening element card file" << std::endl;
+            }
+        }
+    }
+    else
+    {
+        std::cerr << "Error opening main player file" << std::endl;
+    }
+}
+
+
+void Menu::displayCartes() const
 {
     for(unsigned int i = 0 ; i < m_carte.size() ; ++i)
     {
@@ -104,3 +228,43 @@ void Menu::displayAll() const
         std::cout << std::endl;
     }
 }
+
+void Menu::displayJoueurs() const
+{
+    for(unsigned int i = 0 ; i < m_joueur.size() ; ++i)
+    {
+        m_joueur[i].displayCourt();
+        std::cout << std::endl;
+    }
+}
+
+void Menu::CreerJoueur()
+{
+    std::string nom;
+    bool tmp(false);
+
+    do
+    {
+        std::cout << "Nom du joueur : ";
+        getline(std::cin, nom);
+
+        tmp = false;
+
+        if(existNom(nom))
+        {
+            std::cout << "Nom deja utilisee" << std::endl;
+            tmp = true;
+        }
+        if(!Divers::isPrint(nom))
+        {
+            std::cout << "Erreur de saisie" << std::endl;
+            tmp = true;
+        }
+
+    }while(tmp);
+
+    m_joueur.push_back(JoueurMenu(nom));
+
+    saveJoueur();
+}
+

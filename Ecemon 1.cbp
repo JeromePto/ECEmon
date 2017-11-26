@@ -30,6 +30,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++11" />
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Attaque.cpp" />
@@ -52,6 +53,8 @@
 		<Unit filename="EnergieJeu.h" />
 		<Unit filename="Enjeu.cpp" />
 		<Unit filename="Enjeu.h" />
+		<Unit filename="Equivalence.cpp" />
+		<Unit filename="Equivalence.h" />
 		<Unit filename="JoueurMenu.cpp" />
 		<Unit filename="JoueurMenu.h" />
 		<Unit filename="JoueurPartie.cpp" />

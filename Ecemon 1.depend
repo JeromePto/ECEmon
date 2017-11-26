@@ -9,12 +9,13 @@
 	<iostream>
 	"enum.h"
 
-1511090243 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\cartefixe.cpp
+1511696741 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\cartefixe.cpp
 	"CarteFixe.h"
 
-1511108733 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\cartefixe.h
+1511693735 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\cartefixe.h
 	<string>
 	<fstream>
+	<map>
 
 1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\cartejeu.cpp
 	"CarteJeu.h"
@@ -28,17 +29,21 @@
 	<deque>
 	"CarteFixe.h"
 
-1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\collection.cpp
+1511695576 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\collection.cpp
 	"Collection.h"
 
-1510938205 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\collection.h
+1511693990 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\collection.h
+	<iostream>
 	<vector>
+	<fstream>
+	<cstdlib>
 	"CarteFixe.h"
+	"Equivalence.h"
 
-1511117798 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\creaturefixe.cpp
+1511695907 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\creaturefixe.cpp
 	"CreatureFixe.h"
 
-1511108464 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\creaturefixe.h
+1511693735 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\creaturefixe.h
 	<string>
 	<vector>
 	<fstream>
@@ -54,17 +59,22 @@
 	"CreatureFixe.h"
 	"Attaque.h"
 
-1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\deck.cpp
+1511695576 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\deck.cpp
 	"Deck.h"
 
-1510938613 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\deck.h
+1511694246 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\deck.h
+	<iostream>
+	<string>
 	<vector>
+	<fstream>
+	<cstdlib>
 	"CarteFixe.h"
+	"Equivalence.h"
 
-1511117578 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\energiefixe.cpp
+1511693735 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\energiefixe.cpp
 	"EnergieFixe.h"
 
-1511114860 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\energiefixe.h
+1511693735 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\energiefixe.h
 	<iostream>
 	<string>
 	<fstream>
@@ -85,12 +95,15 @@
 1510938753 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\enjeu.h
 	"CarteFixe.h"
 
-1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurmenu.cpp
+1511694737 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurmenu.cpp
 	"JoueurMenu.h"
 
-1510938900 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurmenu.h
+1511693989 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurmenu.h
+	<iostream>
 	<string>
 	<vector>
+	<fstream>
+	<cstdlib>
 	"Collection.h"
 	"Deck.h"
 
@@ -100,7 +113,7 @@
 1510939388 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.h
 	"Deck.h"
 
-1511117753 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\main.cpp
+1511695757 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\main.cpp
 	<iostream>
 	<vector>
 	<algorithm>
@@ -127,11 +140,12 @@
 	"SpecialeFixe.h"
 	"SpecialePermanenteFixe.h"
 	"SpecialePermanenteJeu.h"
+	"Equivalence.h"
 
 1510939401 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.h
 	"JoueurMenu.h"
 
-1511116806 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.h
+1511694883 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.h
 	<iostream>
 	<string>
 	<vector>
@@ -148,6 +162,7 @@
 	"SpecialeFixe.h"
 	"SpecialeCourteFixe.h"
 	"SpecialePermanenteFixe.h"
+	"Equivalence.h"
 
 1510939208 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\pioche.h
 	<deque>
@@ -156,16 +171,15 @@
 1510939080 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialcourtefixe.h
 	"SpecialeFixe.h"
 
-1511116605 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialefixe.h
+1511693735 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialefixe.h
 	<iostream>
 	<string>
 	<fstream>
 	<cstdlib>
 	"CarteFixe.h"
 	"codeSpeciale.h"
-	"Match.h"
 
-1511116589 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialepermanentefixe.h
+1511279818 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialepermanentefixe.h
 	<string>
 	"SpecialeFixe.h"
 
@@ -175,7 +189,7 @@
 1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.cpp
 	"Match.h"
 
-1511118568 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.cpp
+1511695740 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.cpp
 	"Menu.h"
 
 1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\pioche.cpp
@@ -184,28 +198,31 @@
 1510936911 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialcourtefixe.cpp
 	"SpecialCourteFixe.h"
 
-1511116620 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialefixe.cpp
+1511693989 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialefixe.cpp
 	"SpecialeFixe.h"
 
-1511107153 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialepermanentefixe.cpp
+1511279761 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialepermanentefixe.cpp
 	"SpecialePermanenteFixe.h"
 
 1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialepermanentejeu.cpp
 	"SpecialePermanenteJeu.h"
 
-1511117578 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\enum.h
+1511271425 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\enum.h
 
-1511107153 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialecourtefixe.cpp
+1511280279 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialecourtefixe.cpp
 	"SpecialeCourteFixe.h"
 
-1511116589 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialecourtefixe.h
+1511280279 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialecourtefixe.h
 	<string>
 	"SpecialeFixe.h"
 
-1511105543 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\divers.h
+1511690362 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\divers.h
 	<string>
+	<ctype.h>
+	<algorithm>
+	<iterator>
 
-1511105543 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\divers.cpp
+1511690620 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\divers.cpp
 	"divers.h"
 
 1511106000 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\codespeciale.cpp
@@ -213,4 +230,12 @@
 
 1511106000 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\codespeciale.h
 	"Match.h"
+
+1511684636 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\equivalence.h
+	<map>
+	<vector>
+	"CarteFixe.h"
+
+1511696750 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\equivalence.cpp
+	"Equivalence.h"
 

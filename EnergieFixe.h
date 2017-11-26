@@ -21,14 +21,15 @@ private:
 
 public:
     EnergieFixe();
-    EnergieFixe(std::string nom, Domaine domaine);
+    EnergieFixe(std::string nom, unsigned int id, Domaine domaine);
 
     ~EnergieFixe();
 
-    void init(std::string nom, Domaine domaine);
+    void init(std::string nom, unsigned int id, Domaine domaine);
     void initFichier(std::ifstream & fichier);
 
     void displayAll() const;
+    void displayNom() const;
 };
 
 #endif //_ENERGIEFIXE_H

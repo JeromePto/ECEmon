@@ -22,14 +22,15 @@ private:
 
 public:
     CreatureFixe();
-    CreatureFixe(std::string nom, int PV, std::vector<Attaque> attaque);
+    CreatureFixe(std::string nom, unsigned int id, int PV, std::vector<Attaque> attaque);
 
     ~CreatureFixe();
 
-    void init(std::string nom, int PV, std::vector<Attaque> attaque);
+    void init(std::string nom, unsigned int id, int PV, std::vector<Attaque> attaque);
     void initFichier(std::ifstream & fichier);
 
     void displayAll() const;
+    void displayNom() const;
 };
 
 #endif //_CREATUREFIXE_H

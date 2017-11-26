@@ -11,8 +11,8 @@ EnergieFixe::EnergieFixe()
 
 }
 
-EnergieFixe::EnergieFixe(std::string nom, Domaine domaine)
-    :CarteFixe(nom), m_domaine(domaine)
+EnergieFixe::EnergieFixe(std::string nom, unsigned int id, Domaine domaine)
+    :CarteFixe(nom, id), m_domaine(domaine)
 {
 
 }
@@ -22,18 +22,23 @@ EnergieFixe::~EnergieFixe()
 
 }
 
-void EnergieFixe::init(std::string nom, Domaine domaine)
+void EnergieFixe::init(std::string nom, unsigned int id, Domaine domaine)
 {
+    CarteFixe::init(nom, id);
     m_domaine = domaine;
 }
 
 void EnergieFixe::initFichier(std::ifstream& fichier)
 {
     std::string ligne;
+    std::string tmp;
 
     //Lecture nom
+    std::getline(fichier, tmp);
+
+    //Lecture ID
     std::getline(fichier, ligne);
-    CarteFixe::init(ligne);
+    CarteFixe::init(tmp, atoi(ligne.c_str()));
 
     //Lecture domaine
     std::getline(fichier, ligne);
@@ -43,6 +48,7 @@ void EnergieFixe::initFichier(std::ifstream& fichier)
 void EnergieFixe::displayAll() const
 {
     std::cout << "Energie : " << m_nom << std::endl;
+    std::cout << "ID = " << m_id << std::endl;
     std::cout << "Domaine = ";
     switch(m_domaine)
     {
@@ -59,4 +65,9 @@ void EnergieFixe::displayAll() const
         std::cout << NENERGIE4 << std::endl;
         break;
     }
+}
+
+void EnergieFixe::displayNom() const
+{
+    std::cout << "Energie : " << m_nom << std::endl;
 }

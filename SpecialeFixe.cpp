@@ -11,14 +11,14 @@ SpecialeFixe::SpecialeFixe()
 
 }
 
-SpecialeFixe::SpecialeFixe(std::string nom, std::string description, void (*code)(Match * match))
-    :CarteFixe(nom), m_description(description), m_code(code)
+SpecialeFixe::SpecialeFixe(std::string nom, unsigned int id, std::string description, void (*code)(Match * match))
+    :CarteFixe(nom, id), m_description(description), m_code(code)
 {
 
 }
 
-SpecialeFixe::SpecialeFixe(std::string nom, std::string description, unsigned int numero)
-    :CarteFixe(nom), m_description(description), m_code(nullptr)
+SpecialeFixe::SpecialeFixe(std::string nom, unsigned int id, std::string description, unsigned int numero)
+    :CarteFixe(nom, id), m_description(description), m_code(nullptr)
 {
     if(numero == 1)
     {
@@ -31,17 +31,17 @@ SpecialeFixe::~SpecialeFixe()
 
 }
 
-void SpecialeFixe::init(std::string nom, std::string description, void (*code)(Match * match))
+void SpecialeFixe::init(std::string nom, unsigned int id, std::string description, void (*code)(Match * match))
 {
-    CarteFixe::init(nom);
+    CarteFixe::init(nom, id);
     m_description = description;
     m_code = code;
 }
 
 
-void SpecialeFixe::init(std::string nom, std::string description, unsigned int numero)
+void SpecialeFixe::init(std::string nom, unsigned int id, std::string description, unsigned int numero)
 {
-    CarteFixe::init(nom);
+    CarteFixe::init(nom, id);
     m_description = description;
     if(numero == 1)
     {
@@ -52,10 +52,14 @@ void SpecialeFixe::init(std::string nom, std::string description, unsigned int n
 void SpecialeFixe::initFichier(std::ifstream& fichier)
 {
     std::string ligne;
+    std::string tmp;
 
     //Lecture nom
+    std::getline(fichier, tmp);
+
+    //Lecture id
     std::getline(fichier, ligne);
-    CarteFixe::init(ligne);
+    CarteFixe::init(tmp, atoi(ligne.c_str()));
 
     //Lecture description
     std::getline(fichier, ligne);
@@ -76,6 +80,7 @@ void SpecialeFixe::initFichier(std::ifstream& fichier)
 void SpecialeFixe::displayAll() const
 {
     std::cout << "Speciale : " << m_nom << std::endl;
+    std::cout << "ID = " << m_id << std::endl;
     if(isPermanente())
     {
         std::cout << "Permanente" <<  std::endl;
@@ -85,4 +90,9 @@ void SpecialeFixe::displayAll() const
         std::cout << "Non permanente" <<  std::endl;
     }
     std::cout << m_description << std::endl;
+}
+
+void SpecialeFixe::displayNom() const
+{
+    std::cout << "Speciale : " << m_nom << std::endl;
 }

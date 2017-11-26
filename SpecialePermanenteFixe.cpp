@@ -11,8 +11,8 @@ SpecialePermanenteFixe::SpecialePermanenteFixe()
 
 }
 
-SpecialePermanenteFixe::SpecialePermanenteFixe(std::string nom, std::string description, void(* code)(Match * match))
-    :SpecialeFixe(nom, description, code)
+SpecialePermanenteFixe::SpecialePermanenteFixe(std::string nom, unsigned int id, std::string description, void(* code)(Match * match))
+    :SpecialeFixe(nom, id, description, code)
 {
 
 }

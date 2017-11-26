@@ -23,20 +23,29 @@
 #include "SpecialeFixe.h"
 #include "SpecialeCourteFixe.h"
 #include "SpecialePermanenteFixe.h"
+#include "Equivalence.h"
 
 class Menu {
 private:
 	std::vector<JoueurMenu> m_joueur;
 	std::vector<CarteFixe*> m_carte;
+	bool existNom(std::string const& nom);
 
 public:
     Menu();
 
     ~Menu();
 
-    short chargerCartes();
+    short loadCartes();
+    short loadJoueur();
+    void loadFichier();
 
-    void displayAll() const;
+    void saveJoueur();
+
+    void displayCartes() const;
+    void displayJoueurs() const;
+
+    void CreerJoueur();
 
 };
 
