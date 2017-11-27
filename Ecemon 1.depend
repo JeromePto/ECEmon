@@ -70,7 +70,7 @@
 	"CarteFixe.h"
 	"Equivalence.h"
 
-1511783380 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\energiefixe.cpp
+1511783623 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\energiefixe.cpp
 	"EnergieFixe.h"
 
 1511783301 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\energiefixe.h
@@ -106,13 +106,15 @@
 	"Collection.h"
 	"Deck.h"
 
-1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.cpp
+1511788139 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.cpp
 	"JoueurPartie.h"
 
-1510939388 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.h
+1511788139 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.h
+	<iostream>
+	<fstream>
 	"Deck.h"
 
-1511695757 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\main.cpp
+1511787408 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\main.cpp
 	<iostream>
 	<vector>
 	<algorithm>
@@ -140,11 +142,13 @@
 	"SpecialePermanenteFixe.h"
 	"SpecialePermanenteJeu.h"
 	"Equivalence.h"
+	"MenuMatch.h"
 
-1510939401 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.h
-	"JoueurMenu.h"
+1511788559 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.h
+	"JoueurPartie.h"
+	"MenuMatch.h"
 
-1511694883 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.h
+1511788732 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.h
 	<iostream>
 	<string>
 	<vector>
@@ -162,6 +166,7 @@
 	"SpecialeCourteFixe.h"
 	"SpecialePermanenteFixe.h"
 	"Equivalence.h"
+	"MenuMatch.h"
 
 1510939208 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\pioche.h
 	<deque>
@@ -170,7 +175,7 @@
 1510939080 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialcourtefixe.h
 	"SpecialeFixe.h"
 
-1511783301 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialefixe.h
+1511785884 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialefixe.h
 	<iostream>
 	<string>
 	<fstream>
@@ -185,7 +190,7 @@
 1510940168 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\specialepermanentejeu.h
 	"SpecialePermanenteFixe.h"
 
-1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.cpp
+1511788496 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.cpp
 	"Match.h"
 
 1511695740 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.cpp
@@ -237,4 +242,10 @@
 
 1511696792 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\equivalence.cpp
 	"Equivalence.h"
+
+1511788311 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.h
+
+1511788709 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.cpp
+	"MenuMatch.h"
+	"Match.h"
 

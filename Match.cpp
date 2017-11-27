@@ -5,6 +5,9 @@
 
 #include "Match.h"
 
-/**
- * Match implementation
- */
+Match::Match()
+    :m_joueur1(), m_joueur2()
+{
+
+}
+
