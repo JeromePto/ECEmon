@@ -15,7 +15,7 @@ class SpecialePermanenteFixe: public SpecialeFixe
 {
 public:
     SpecialePermanenteFixe();
-    SpecialePermanenteFixe(std::string nom, unsigned int id, std::string description, void (*code)(Match * match));
+    SpecialePermanenteFixe(std::string nom, unsigned int id, unsigned int prix, std::string description, void (*code)(Match * match));
 
     ~SpecialePermanenteFixe();
 

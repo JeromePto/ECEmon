@@ -8,20 +8,20 @@
 
 #include <string>
 #include <fstream>
-#include <map>
 
 class CarteFixe {
 protected:
 	std::string m_nom;
 	unsigned int m_id;
+	unsigned int m_prix;
 
 public:
     CarteFixe();
-    CarteFixe(std::string nom, unsigned int id);
+    CarteFixe(std::string nom, unsigned int id, unsigned int prix);
 
     virtual ~CarteFixe();
 
-    virtual void init(std::string nom, unsigned int id);
+    virtual void init(std::string nom, unsigned int id, unsigned int prix);
     virtual void initFichier(std::ifstream & fichier) = 0;
 
     unsigned int getID() const;

@@ -22,11 +22,11 @@ private:
 
 public:
     CreatureFixe();
-    CreatureFixe(std::string nom, unsigned int id, int PV, std::vector<Attaque> attaque);
+    CreatureFixe(std::string nom, unsigned int id, unsigned int prix, int PV, std::vector<Attaque> attaque);
 
     ~CreatureFixe();
 
-    void init(std::string nom, unsigned int id, int PV, std::vector<Attaque> attaque);
+    void init(std::string nom, unsigned int id, unsigned int prix, int PV, std::vector<Attaque> attaque);
     void initFichier(std::ifstream & fichier);
 
     void displayAll() const;

@@ -1,6 +1,7 @@
 creature
 Kevin
 2
+150
 100
 1
 Coup de bite
