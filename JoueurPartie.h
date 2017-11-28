@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 #include "Deck.h"
 
@@ -15,10 +16,11 @@ class JoueurPartie {
 private:
 	Deck const* m_deck;
 	int m_PV;
+	std::string m_nom;
 
 public:
     JoueurPartie();
-    void setDeck(Deck const* deck);
+    void init(std::string const& nom, Deck const* deck);
 };
 
 #endif //_JOUEURPARTIE_H

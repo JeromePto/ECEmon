@@ -20,6 +20,8 @@ private:
 
 public:
     Match();
+
+    void initPostJoueur();
 };
 
 #endif //_MATCH_H

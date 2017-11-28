@@ -22,6 +22,7 @@ private:
 	std::vector<Deck> m_deck;
 	int m_argent;
 
+
 public:
     JoueurMenu();
     JoueurMenu(std::string const& nom);
@@ -33,9 +34,17 @@ public:
     void saveFichier(std::ofstream & fichier);
 
     std::string getNom() const;
+	bool existNomDeck(std::string const& nom) const;
+	Deck const* deckToPointer(std::string const& nom) const;
 
+    //affiche tout : info joueur + deck(s) et contenu + collection et contenu
     void displayAll() const;
+
+    //affiche tout sans contenus des decks et de la collection (juste leur nom)
     void displayCourt() const;
+
+    //afffiche juste le nom des decks
+    void displayDeckNom(std::string avant = "") const;
 
 };
 

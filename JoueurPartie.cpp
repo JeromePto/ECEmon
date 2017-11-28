@@ -6,7 +6,7 @@
 #include "JoueurPartie.h"
 
 JoueurPartie::JoueurPartie()
-    :m_deck(nullptr), m_PV(0)
+    :m_deck(nullptr), m_PV(0), m_nom("")
 {
     std::ifstream fichier("ressources/info.txt", std::ios_base::out);
     if(fichier)
@@ -21,8 +21,9 @@ JoueurPartie::JoueurPartie()
     }
 }
 
-void JoueurPartie::setDeck(Deck const* deck)
+void JoueurPartie::init(std::string const& nom, Deck const* deck)
 {
+    m_nom = nom;
     m_deck = deck;
 }
 

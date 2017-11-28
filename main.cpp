@@ -41,8 +41,7 @@ int main()
 
     menu.loadFichier();
 
-    menu.displayCartes();
-    menu.displayJoueurs();
+    MenuMatch::lancerMatch();
 
     return 0;
 }

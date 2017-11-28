@@ -20,6 +20,36 @@ JoueurMenu::JoueurMenu(std::string const& nom)
     m_deck.push_back(tmp);
 }
 
+bool JoueurMenu::existNomDeck(std::string const& nom) const
+{
+    bool sortie(false);
+
+    for(std::vector<Deck>::const_iterator it = m_deck.cbegin() ; it != m_deck.cend() ; ++it)
+    {
+        if(it->getNom() == nom)
+        {
+            sortie = true;
+        }
+    }
+
+    return sortie;
+}
+
+Deck const* JoueurMenu::deckToPointer(std::string const& nom) const
+{
+    Deck const* sortie(nullptr);
+
+    for(unsigned int i = 0 ; i < m_deck.size() ; ++i)
+    {
+        if(m_deck[i].getNom() == nom)
+        {
+            sortie = &m_deck[i];
+        }
+    }
+
+    return sortie;
+}
+
 JoueurMenu::~JoueurMenu()
 {
 
@@ -101,5 +131,13 @@ void JoueurMenu::displayCourt() const
     for(unsigned int i = 0 ; i < m_deck.size() ; ++i)
     {
         m_deck[i].displayNom();
+    }
+}
+
+void JoueurMenu::displayDeckNom(std::string avant) const
+{
+    for(unsigned int i = 0 ; i < m_deck.size() ; ++i)
+    {
+        std::cout << avant << m_deck[i].getNom() << std::endl;
     }
 }

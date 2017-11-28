@@ -5,7 +5,7 @@
 
 #include "Menu.h"
 
-bool Menu::existNom(std::string const& nom)
+bool Menu::existNomJoueur(std::string const& nom) const
 {
     bool sortie(false);
 
@@ -19,6 +19,22 @@ bool Menu::existNom(std::string const& nom)
 
     return sortie;
 }
+
+JoueurMenu const* Menu::joueurToPointer(std::string const& nom) const
+{
+    JoueurMenu const* sortie(nullptr);
+
+    for(unsigned int i = 0 ; i < m_joueur.size() ; ++i)
+    {
+        if(m_joueur[i].getNom() == nom)
+        {
+            sortie = &m_joueur[i];
+        }
+    }
+
+    return sortie;
+}
+
 
 Menu::Menu()
     :m_joueur(), m_carte()
@@ -238,6 +254,17 @@ void Menu::displayJoueurs() const
     }
 }
 
+void Menu::displayListeJoueurs(std::string avant, JoueurMenu const* sauf) const
+{
+    for(unsigned int i = 0 ; i < m_joueur.size() ; ++i)
+    {
+        if(&m_joueur[i] != sauf)
+        {
+            std::cout << avant << m_joueur[i].getNom() << std::endl;
+        }
+    }
+}
+
 void Menu::CreerJoueur()
 {
     std::string nom;
@@ -250,7 +277,7 @@ void Menu::CreerJoueur()
 
         tmp = false;
 
-        if(existNom(nom))
+        if(existNomJoueur(nom))
         {
             std::cout << "Nom deja utilisee" << std::endl;
             tmp = true;

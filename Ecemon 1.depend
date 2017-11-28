@@ -58,10 +58,10 @@
 	"CreatureFixe.h"
 	"Attaque.h"
 
-1511695576 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\deck.cpp
+1511859956 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\deck.cpp
 	"Deck.h"
 
-1511694246 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\deck.h
+1511866615 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\deck.h
 	<iostream>
 	<string>
 	<vector>
@@ -94,10 +94,10 @@
 1510938753 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\enjeu.h
 	"CarteFixe.h"
 
-1511694737 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurmenu.cpp
+1511869003 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurmenu.cpp
 	"JoueurMenu.h"
 
-1511693989 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurmenu.h
+1511869003 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurmenu.h
 	<iostream>
 	<string>
 	<vector>
@@ -106,15 +106,16 @@
 	"Collection.h"
 	"Deck.h"
 
-1511788139 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.cpp
+1511868712 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.cpp
 	"JoueurPartie.h"
 
-1511788139 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.h
+1511868712 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\joueurpartie.h
 	<iostream>
 	<fstream>
+	<string>
 	"Deck.h"
 
-1511856029 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\main.cpp
+1511875266 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\main.cpp
 	<iostream>
 	<vector>
 	"enum.h"
@@ -142,11 +143,11 @@
 	"Equivalence.h"
 	"MenuMatch.h"
 
-1511788559 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.h
+1511875767 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.h
 	"JoueurPartie.h"
 	"MenuMatch.h"
 
-1511788732 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.h
+1511869693 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.h
 	<iostream>
 	<string>
 	<vector>
@@ -191,7 +192,7 @@
 1511788496 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\match.cpp
 	"Match.h"
 
-1511695740 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.cpp
+1511869726 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menu.cpp
 	"Menu.h"
 
 1510936910 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\pioche.cpp
@@ -241,11 +242,15 @@
 1511696792 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\equivalence.cpp
 	"Equivalence.h"
 
-1511855925 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.h
+1511866645 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.h
 	<iostream>
+	<string>
 	<windows.h>
+	<ctype.h>
+	"JoueurMenu.h"
 
-1511788709 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.cpp
+1511869871 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.cpp
 	"MenuMatch.h"
 	"Match.h"
+	"Menu.h"
 

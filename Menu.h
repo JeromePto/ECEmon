@@ -28,13 +28,9 @@
 #include "MenuMatch.h"
 
 class Menu {
-
-    friend MenuMatch;
-
 private:
 	std::vector<JoueurMenu> m_joueur;
 	std::vector<CarteFixe*> m_carte;
-	bool existNom(std::string const& nom);
 
 public:
     Menu();
@@ -47,8 +43,12 @@ public:
 
     void saveJoueur();
 
+	bool existNomJoueur(std::string const& nom) const;
+	JoueurMenu const* joueurToPointer(std::string const& nom) const;
+
     void displayCartes() const;
     void displayJoueurs() const;
+    void displayListeJoueurs(std::string avant = "", JoueurMenu const* sauf = nullptr) const;
 
     void CreerJoueur();
 

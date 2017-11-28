@@ -66,6 +66,12 @@ void Deck::setPD()
     }
 }
 
+std::string Deck::getNom() const
+{
+    return m_nom;
+}
+
+
 void Deck::displayAll() const
 {
     std::cout << "Deck : " << m_nom << std::endl << std::endl;

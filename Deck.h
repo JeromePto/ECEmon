@@ -31,7 +31,12 @@ public:
 
     void setPD();
 
+    std::string getNom() const;
+
+    //affiche tous : carte et leurs contenus
     void displayAll() const;
+
+    //affiche juste nom des cartes du decks
     void displayNom() const;
 };
 
