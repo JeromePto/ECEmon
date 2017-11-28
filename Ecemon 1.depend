@@ -114,11 +114,9 @@
 	<fstream>
 	"Deck.h"
 
-1511787408 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\main.cpp
+1511856029 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\main.cpp
 	<iostream>
 	<vector>
-	<algorithm>
-	<ctype.h>
 	"enum.h"
 	"divers.h"
 	"codeSpeciale.h"
@@ -243,7 +241,9 @@
 1511696792 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\equivalence.cpp
 	"Equivalence.h"
 
-1511788311 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.h
+1511855925 d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.h
+	<iostream>
+	<windows.h>
 
 1511788709 source:d:\documents\ece\ing2\informatique\projet 1\ecemon 1\menumatch.cpp
 	"MenuMatch.h"

@@ -1,6 +1,9 @@
 #ifndef MENUMATCH_H_INCLUDED
 #define MENUMATCH_H_INCLUDED
 
+#include <iostream>
+#include <windows.h>
+
 class Menu;
 class Match;
 

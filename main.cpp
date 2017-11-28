@@ -1,9 +1,6 @@
 #include <iostream>
 #include <vector>
 
-#include <algorithm>
-#include <ctype.h>
-
 #include "enum.h"
 #include "divers.h"
 #include "codeSpeciale.h"
