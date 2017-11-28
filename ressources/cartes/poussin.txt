@@ -1,6 +1,7 @@
 creature
 Poussin
 003
+250
 100
 2
 Coup d'aile

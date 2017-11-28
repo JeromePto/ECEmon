@@ -5,6 +5,7 @@
 		<Option title="Ecemon 1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="Match\;Match\Sources\;Match\Headers\;Menu\;Menu\Headers\;Menu\Sources\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Ecemon 1" prefix_auto="1" extension_auto="1" />
@@ -33,46 +34,128 @@
 			<Add option="-std=c++11" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Attaque.cpp" />
-		<Unit filename="Attaque.h" />
-		<Unit filename="CarteFixe.cpp" />
-		<Unit filename="CarteFixe.h" />
-		<Unit filename="Cimetiere.cpp" />
-		<Unit filename="Cimetiere.h" />
-		<Unit filename="Collection.cpp" />
-		<Unit filename="Collection.h" />
-		<Unit filename="CreatureFixe.cpp" />
-		<Unit filename="CreatureFixe.h" />
-		<Unit filename="CreatureJeu.cpp" />
-		<Unit filename="CreatureJeu.h" />
-		<Unit filename="Deck.cpp" />
-		<Unit filename="Deck.h" />
-		<Unit filename="EnergieFixe.cpp" />
-		<Unit filename="EnergieFixe.h" />
-		<Unit filename="EnergieJeu.cpp" />
-		<Unit filename="EnergieJeu.h" />
-		<Unit filename="Enjeu.cpp" />
-		<Unit filename="Enjeu.h" />
-		<Unit filename="Equivalence.cpp" />
-		<Unit filename="Equivalence.h" />
-		<Unit filename="JoueurMenu.cpp" />
-		<Unit filename="JoueurMenu.h" />
-		<Unit filename="JoueurPartie.cpp" />
-		<Unit filename="JoueurPartie.h" />
-		<Unit filename="Match.cpp" />
-		<Unit filename="Match.h" />
-		<Unit filename="Menu.cpp" />
-		<Unit filename="Menu.h" />
-		<Unit filename="Pioche.cpp" />
-		<Unit filename="Pioche.h" />
-		<Unit filename="SpecialeCourteFixe.cpp" />
-		<Unit filename="SpecialeCourteFixe.h" />
-		<Unit filename="SpecialeFixe.cpp" />
-		<Unit filename="SpecialeFixe.h" />
-		<Unit filename="SpecialePermanenteFixe.cpp" />
-		<Unit filename="SpecialePermanenteFixe.h" />
-		<Unit filename="SpecialePermanenteJeu.cpp" />
-		<Unit filename="SpecialePermanenteJeu.h" />
+		<Unit filename="Attaque.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="Attaque.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="CarteFixe.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="CarteFixe.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="Cimetiere.cpp">
+			<Option virtualFolder="Match/Sources/" />
+		</Unit>
+		<Unit filename="Cimetiere.h">
+			<Option virtualFolder="Match/Headers/" />
+		</Unit>
+		<Unit filename="Collection.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="Collection.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="CreatureFixe.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="CreatureFixe.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="CreatureJeu.cpp">
+			<Option virtualFolder="Match/Sources/" />
+		</Unit>
+		<Unit filename="CreatureJeu.h">
+			<Option virtualFolder="Match/Headers/" />
+		</Unit>
+		<Unit filename="Deck.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="Deck.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="EnergieFixe.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="EnergieFixe.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="EnergieJeu.cpp">
+			<Option virtualFolder="Match/Sources/" />
+		</Unit>
+		<Unit filename="EnergieJeu.h">
+			<Option virtualFolder="Match/Headers/" />
+		</Unit>
+		<Unit filename="Enjeu.cpp">
+			<Option virtualFolder="Match/Sources/" />
+		</Unit>
+		<Unit filename="Enjeu.h">
+			<Option virtualFolder="Match/Headers/" />
+		</Unit>
+		<Unit filename="Equivalence.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="Equivalence.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="JoueurMenu.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="JoueurMenu.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="JoueurPartie.cpp">
+			<Option virtualFolder="Match/Sources/" />
+		</Unit>
+		<Unit filename="JoueurPartie.h">
+			<Option virtualFolder="Match/Headers/" />
+		</Unit>
+		<Unit filename="Match.cpp">
+			<Option virtualFolder="Match/Sources/" />
+		</Unit>
+		<Unit filename="Match.h">
+			<Option virtualFolder="Match/Headers/" />
+		</Unit>
+		<Unit filename="Menu.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="Menu.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="MenuMatch.cpp" />
+		<Unit filename="MenuMatch.h" />
+		<Unit filename="Pioche.cpp">
+			<Option virtualFolder="Match/Sources/" />
+		</Unit>
+		<Unit filename="Pioche.h">
+			<Option virtualFolder="Match/Headers/" />
+		</Unit>
+		<Unit filename="SpecialeCourteFixe.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="SpecialeCourteFixe.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="SpecialeFixe.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="SpecialeFixe.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="SpecialePermanenteFixe.cpp">
+			<Option virtualFolder="Menu/Sources/" />
+		</Unit>
+		<Unit filename="SpecialePermanenteFixe.h">
+			<Option virtualFolder="Menu/Headers/" />
+		</Unit>
+		<Unit filename="SpecialePermanenteJeu.cpp">
+			<Option virtualFolder="Match/Sources/" />
+		</Unit>
+		<Unit filename="SpecialePermanenteJeu.h">
+			<Option virtualFolder="Match/Headers/" />
+		</Unit>
 		<Unit filename="codeSpeciale.cpp" />
 		<Unit filename="codeSpeciale.h" />
 		<Unit filename="divers.cpp" />

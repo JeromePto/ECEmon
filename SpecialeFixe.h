@@ -24,13 +24,13 @@ protected:
 
 public:
     SpecialeFixe();
-    SpecialeFixe(std::string nom, unsigned int id, std::string description, void (*code)(Match * match));
-    SpecialeFixe(std::string nom, unsigned int id, std::string description, unsigned int numero);
+    SpecialeFixe(std::string nom, unsigned int id, unsigned int prix, std::string description, void (*code)(Match * match));
+    SpecialeFixe(std::string nom, unsigned int id, unsigned int prix, std::string description, unsigned int numero);
 
     ~SpecialeFixe();
 
-    void init(std::string nom, unsigned int id, std::string description, void (*code)(Match * match));
-    void init(std::string nom, unsigned int id, std::string description, unsigned int numero);
+    void init(std::string nom, unsigned int id, unsigned int prix, std::string description, void (*code)(Match * match));
+    void init(std::string nom, unsigned int id, unsigned int prix, std::string description, unsigned int numero);
     void initFichier(std::ifstream & fichier);
 
     virtual bool isPermanente() const = 0;
