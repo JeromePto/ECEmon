@@ -1,5 +1,0 @@
-Energie
-Flamme
-5
-100
-0

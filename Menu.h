@@ -31,6 +31,7 @@ class Menu {
 private:
 	std::vector<JoueurMenu> m_joueur;
 	std::vector<CarteFixe*> m_carte;
+	JoueurMenu * joueurToPointerPrivate(std::string const& nom);
 
 public:
     Menu();
@@ -50,7 +51,8 @@ public:
     void displayJoueurs() const;
     void displayListeJoueurs(std::string avant = "", JoueurMenu const* sauf = nullptr) const;
 
-    void CreerJoueur();
+    void creerJoueur();
+    void modifierJoueur();
 
 };
 

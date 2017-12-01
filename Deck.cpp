@@ -11,6 +11,12 @@ Deck::Deck()
 
 }
 
+Deck::Deck(std::vector<CarteFixe const*> carte, std::string nom)
+    :m_carte(carte), m_nom(nom)
+{
+
+}
+
 Deck::~Deck()
 {
 
@@ -71,6 +77,20 @@ std::string Deck::getNom() const
     return m_nom;
 }
 
+CarteFixe const* Deck::at(unsigned pos) const
+{
+    CarteFixe const* sortie(nullptr);
+    if(pos < m_carte.size())
+    {
+        sortie = m_carte[pos];
+    }
+    return sortie;
+}
+
+unsigned Deck::size() const
+{
+    return m_carte.size();
+}
 
 void Deck::displayAll() const
 {

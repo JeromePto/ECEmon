@@ -35,3 +35,18 @@ void CarteFixe::init(std::string nom, unsigned int id, unsigned int prix)
     m_prix = prix;
 }
 
+void CarteFixe::initFichier(std::ifstream & fichier)
+{
+    std::string ligne;
+
+    //Lecture nom
+    std::getline(fichier, m_nom);
+
+    //Lecture ID
+    std::getline(fichier, ligne);
+    m_id = atoi(ligne.c_str());
+
+    //Lecture prix
+    std::getline(fichier, ligne);
+    m_prix = atoi(ligne.c_str());
+}

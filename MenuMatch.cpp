@@ -2,7 +2,7 @@
 #include "Match.h"
 #include "Menu.h"
 
-void MenuMatch::lancerMatch()
+void MenuMatch::initJoueurMatch()
 {
     std::string choix;
     JoueurMenu const* joueur(nullptr);
@@ -43,7 +43,7 @@ void MenuMatch::lancerMatch()
             getline(std::cin, choix);
         }while(!joueur->existNomDeck(choix));
 
-        m_match->m_joueur1.init(joueur->getNom(), joueur->deckToPointer(choix));
+        m_match->m_joueur1.preInit(joueur->getNom(), joueur->deckToPointer(choix));
 
 
         ///Choix joueur et deck du joueur 2
@@ -72,7 +72,7 @@ void MenuMatch::lancerMatch()
             getline(std::cin, choix);
         }while(!joueur->existNomDeck(choix));
 
-        m_match->m_joueur2.init(joueur->getNom(), joueur->deckToPointer(choix));
+        m_match->m_joueur2.preInit(joueur->getNom(), joueur->deckToPointer(choix));
     }
 
 }

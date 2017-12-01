@@ -11,8 +11,8 @@ CreatureFixe::CreatureFixe()
 
 }
 
-CreatureFixe::CreatureFixe(std::string nom, unsigned int id, unsigned int prix, int PV, std::vector<Attaque> attaque)
-    :CarteFixe(nom, id, prix), m_PV(PV), m_attaque(attaque)
+CreatureFixe::CreatureFixe(std::string nom, unsigned int id, unsigned int prix, int PV, std::string description, std::vector<Attaque> attaque)
+    :CarteFixe(nom, id, prix), m_PV(PV), m_description(description), m_attaque(attaque)
 {
 
 }
@@ -22,34 +22,27 @@ CreatureFixe::~CreatureFixe()
 
 }
 
-void CreatureFixe::init(std::string nom, unsigned int id, unsigned int prix, int PV, std::vector<Attaque> attaque)
+void CreatureFixe::init(std::string nom, unsigned int id, unsigned int prix, int PV, std::string description, std::vector<Attaque> attaque)
 {
     CarteFixe::init(nom, id, prix);
     m_PV = PV;
+    m_description = description;
     m_attaque = attaque;
 }
 
 void CreatureFixe::initFichier(std::ifstream & fichier)
 {
     std::string ligne;
-    std::string tmpNom;
-    unsigned int tmpID;
     short nbAttaque(0);
 
-    //Lecture nom
-    std::getline(fichier, tmpNom);
-
-    //Lecture ID
-    std::getline(fichier, ligne);
-    tmpID = atoi(ligne.c_str());
-
-    //Lecture prix
-    std::getline(fichier, ligne);
-    CarteFixe::init(tmpNom, tmpID, atoi(ligne.c_str()));
+    CarteFixe::initFichier(fichier);
 
     //Lecture PV
     std::getline(fichier, ligne);
     m_PV = atoi(ligne.c_str());
+
+    //Lecture description
+    std::getline(fichier, m_description);
 
     //Lecture attaque
     std::getline(fichier, ligne);
@@ -63,9 +56,20 @@ void CreatureFixe::initFichier(std::ifstream & fichier)
 
 }
 
+int CreatureFixe::getPV() const
+{
+    return m_PV;
+}
+
+std::vector<Attaque> const& CreatureFixe::getAttaque() const
+{
+    return m_attaque;
+}
+
 void CreatureFixe::displayAll() const
 {
     std::cout << "Creature : " << m_nom << std::endl;
+    std::cout << m_description << std::endl;
     std::cout << "ID = " << m_id << std::endl;
     std::cout << "Prix = " << m_prix << std::endl;
     std::cout << "PV = " << m_PV << std::endl;
@@ -80,4 +84,28 @@ void CreatureFixe::displayAll() const
 void CreatureFixe::displayNom() const
 {
     std::cout << "Creature : " << m_nom << std::endl;
+}
+
+void CreatureFixe::displayJeu() const
+{
+    std::cout << "Creature : " << m_nom << std::endl;
+    std::cout << m_description << std::endl;
+    std::cout << "PV = " << m_PV << std::endl;
+    for(unsigned short i = 0 ; i < m_attaque.size() ; i++)
+    {
+        std::cout << "Attaque " << i+1 << " : ";
+        m_attaque[i].dispalayAll();
+    }
+}
+
+void CreatureFixe::displayJeu(int pv) const
+{
+    std::cout << "Creature : " << m_nom << std::endl;
+    std::cout << m_description << std::endl;
+    std::cout << "PV = " << pv << std::endl;
+    for(unsigned short i = 0 ; i < m_attaque.size() ; i++)
+    {
+        std::cout << "Attaque " << i+1 << " : ";
+        m_attaque[i].dispalayAll();
+    }
 }

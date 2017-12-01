@@ -1,0 +1,11 @@
+creature
+Leonard de Vinci
+06
+70
+100
+Peintre italien
+1
+Veni vidi vinci
+30
+0010
+

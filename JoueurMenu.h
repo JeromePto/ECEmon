@@ -11,6 +11,9 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
+#include <windows.h>
+#include <sstream>
+#include <algorithm>
 
 #include "Collection.h"
 #include "Deck.h"
@@ -36,6 +39,7 @@ public:
     std::string getNom() const;
 	bool existNomDeck(std::string const& nom) const;
 	Deck const* deckToPointer(std::string const& nom) const;
+	void creerDeck();
 
     //affiche tout : info joueur + deck(s) et contenu + collection et contenu
     void displayAll() const;
@@ -47,5 +51,8 @@ public:
     void displayDeckNom(std::string avant = "") const;
 
 };
+
+
+bool isInCollection(std::vector<int> id, Collection const& collection, std::vector<CarteFixe const*> & tab, unsigned taille);
 
 #endif //_JOUEURMENU_H

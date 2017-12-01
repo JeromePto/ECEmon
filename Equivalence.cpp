@@ -15,8 +15,17 @@ namespace Equivalence
     CarteFixe const* toPointer(unsigned int id)
     {
         CarteFixe const* sortie(nullptr);
+        std::map<unsigned int, CarteFixe const*>::iterator it;
 
-        sortie = m_carte[id];
+        it = m_carte.find(id);
+        if(it != m_carte.end())
+        {
+            sortie = m_carte[id];
+        }
+        else
+        {
+            sortie = nullptr;
+        }
 
         return sortie;
     }

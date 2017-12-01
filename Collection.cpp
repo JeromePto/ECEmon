@@ -50,7 +50,7 @@ void Collection::saveFichier(std::ofstream& fichier) const
 
 void Collection::setPD()
 {
-    std::ifstream fichier("ressources/collectionPD.txt", std::ios_base::out);
+    std::ifstream fichier("ressources/collectionPD.txt");
     if(fichier)
     {
         initFichier(fichier);
@@ -59,6 +59,28 @@ void Collection::setPD()
     {
         exit(-5);
     }
+}
+
+std::vector<CarteFixe const*> const& Collection::getCartes() const
+{
+    return m_carte;
+}
+
+bool Collection::existID(int id) const
+{
+    bool sortie(false);
+    for(std::vector<CarteFixe const*>::const_iterator it = m_carte.cbegin() ; it != m_carte.cend() ; ++it)
+    {
+        if(id > 0)
+        {
+            if((*it)->getID() == static_cast<unsigned int>(id))
+            {
+                sortie = true;
+            }
+        }
+    }
+
+    return sortie;
 }
 
 void Collection::displayAll() const

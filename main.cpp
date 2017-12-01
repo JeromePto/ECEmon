@@ -1,9 +1,9 @@
 #include <iostream>
-#include <vector>
+#include <ctime>
+#include <windows.h>
 
 #include "enum.h"
 #include "divers.h"
-#include "codeSpeciale.h"
 #include "Attaque.h"
 #include "CarteFixe.h"
 #include "Cimetiere.h"
@@ -36,12 +36,20 @@ int main()
     Menu menu;
     Match match;
 
+    srand(time(nullptr));
+
     MenuMatch::m_menu = &menu;
     MenuMatch::m_match = &match;
 
     menu.loadFichier();
 
-    MenuMatch::lancerMatch();
+    menu.displayCartes();
+
+    system("pause");
+
+    //menu.modifierJoueur();
+
+    match.mainMatch();
 
     return 0;
 }

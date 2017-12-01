@@ -1,0 +1,13 @@
+creature
+Johnny
+01
+70
+100
+Chanteur francais
+2
+Allumer le feu
+30
+1000
+A l'idee
+40
+2000

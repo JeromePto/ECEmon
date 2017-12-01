@@ -28,8 +28,11 @@ public:
     void init(std::string nom, unsigned int id, unsigned int prix, Domaine domaine);
     void initFichier(std::ifstream & fichier);
 
+    Domaine getDomaine() const;
+
     void displayAll() const;
     void displayNom() const;
+    void displayJeu() const;
 };
 
 #endif //_ENERGIEFIXE_H

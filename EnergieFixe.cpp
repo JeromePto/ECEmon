@@ -31,23 +31,17 @@ void EnergieFixe::init(std::string nom, unsigned int id, unsigned int prix, Doma
 void EnergieFixe::initFichier(std::ifstream& fichier)
 {
     std::string ligne;
-    std::string tmpNom;
-    unsigned int tmpID;
 
-    //Lecture nom
-    std::getline(fichier, tmpNom);
-
-    //Lecture ID
-    std::getline(fichier, ligne);
-    tmpID = atoi(ligne.c_str());
-
-    //Lecture prix
-    std::getline(fichier, ligne);
-    CarteFixe::init(tmpNom, tmpID, atoi(ligne.c_str()));
+    CarteFixe::initFichier(fichier);
 
     //Lecture domaine
     std::getline(fichier, ligne);
     m_domaine = static_cast<Domaine>(atoi(ligne.c_str()));
+}
+
+Domaine EnergieFixe::getDomaine() const
+{
+    return m_domaine;
 }
 
 void EnergieFixe::displayAll() const
@@ -76,4 +70,25 @@ void EnergieFixe::displayAll() const
 void EnergieFixe::displayNom() const
 {
     std::cout << "Energie : " << m_nom << std::endl;
+}
+
+void EnergieFixe::displayJeu() const
+{
+    std::cout << "Energie : " << m_nom << std::endl;
+    std::cout << "Domaine = ";
+    switch(m_domaine)
+    {
+    case DOMAINE1:
+        std::cout << NENERGIE1 << std::endl;
+        break;
+    case DOMAINE2:
+        std::cout << NENERGIE2 << std::endl;
+        break;
+    case DOMAINE3:
+        std::cout << NENERGIE3 << std::endl;
+        break;
+    case DOMAINE4:
+        std::cout << NENERGIE4 << std::endl;
+        break;
+    }
 }

@@ -109,6 +109,46 @@ std::string JoueurMenu::getNom() const
     return m_nom;
 }
 
+void JoueurMenu::creerDeck()
+{
+    unsigned taille(0);
+    std::string texte;
+    std::string chiffre;
+    std::vector<int> input;
+    std::vector<CarteFixe const*> carte;
+    std::istringstream ligne;
+
+    /// Taille du deck
+    std::ifstream fichier("ressources/info.txt");
+    getline(fichier, texte);
+    getline(fichier, texte);
+    taille = atoi(texte.c_str());
+    fichier.close();
+
+    m_collection.displayAll();
+    std::cout << std::endl;
+    std::cout << "Entrer les id des " << taille << " cartes de votres deck separee par des espaces" << std::endl;
+    do
+    {
+        ligne.clear();
+        input.clear();
+        std::cout << "IDs : ";
+        std::getline(std::cin, texte);
+        ligne.str(texte);
+        for(unsigned i = 0 ; i < taille ; ++i)
+        {
+            ligne >> chiffre;
+            input.push_back(atoi(chiffre.c_str()));
+        }
+    }while(!isInCollection(input, m_collection, carte, taille));
+
+    std::cout << "Donnez un nom au deck : ";
+    getline(std::cin, texte);
+
+    m_deck.push_back(Deck(carte, texte));
+}
+
+
 void JoueurMenu::displayAll() const
 {
     std::cout << "Joueur : " << m_nom << std::endl;
@@ -140,4 +180,46 @@ void JoueurMenu::displayDeckNom(std::string avant) const
     {
         std::cout << avant << m_deck[i].getNom() << std::endl;
     }
+}
+
+bool isInCollection(std::vector<int> id, Collection const& collection, std::vector<CarteFixe const*> & tab, unsigned taille)
+{
+    bool sortie(true);
+    std::vector<CarteFixe const*> tmp;
+    std::vector<CarteFixe const*> collec(collection.getCartes());
+    std::vector<CarteFixe const*>::iterator it;
+
+    for(unsigned i = 0 ; i < id.size() ; ++i)
+    {
+        if(collection.existID(id[i]))
+        {
+            tmp.push_back(Equivalence::toPointer(id[i]));
+        }
+    }
+    if(tmp.size() == taille)
+    {
+        for(unsigned i = 0 ; i < taille ; ++i)
+        {
+            it = find(collec.begin(), collec.end(), tmp[i]);
+            if(it != collec.end())
+            {
+                collec.erase(it);
+            }
+            else
+            {
+                sortie = false;
+            }
+        }
+    }
+    else
+    {
+        sortie = false;
+    }
+
+    if(sortie == true)
+    {
+        tab = tmp;
+    }
+
+    return sortie;
 }

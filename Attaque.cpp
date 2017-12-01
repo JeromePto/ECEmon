@@ -57,6 +57,41 @@ void Attaque::initFichier(std::ifstream& fichier)
 
 }
 
+bool Attaque::isPossible(int const* tab) const
+{
+    bool sortie(true);
+    int tmp[4] = {0, 0, 0, 0};
+    int tmpAll(0);
+
+    tmpAll = m_energie[4];
+    for(short i = 0 ; i < 4 ; ++i)
+    {
+        tmp[i] = m_energie[i];
+        tmp[i] -= tab[i];
+    }
+    for(short i = 0 ; i < 4 ; ++i)
+    {
+        if(tmp[i] > 0 && tmpAll >= tmp[i])
+        {
+            tmpAll -= tmp[i];
+            tmp[i] = 0;
+        }
+    }
+    for(short i = 0 ; i < 4 ; ++i)
+    {
+        if(tmp[i] > 0)
+        {
+            sortie = false;
+        }
+    }
+    return sortie;
+}
+
+int Attaque::getDegats() const
+{
+    return m_degats;
+}
+
 void Attaque::dispalayAll() const
 {
     std::cout << m_nom << std::endl;

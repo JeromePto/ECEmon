@@ -29,6 +29,8 @@ public:
     void saveFichier(std::ofstream & fichier) const;
 
     void setPD();
+    std::vector<CarteFixe const*> const& getCartes() const;
+    bool existID(int id) const;
 
     void displayAll() const;
     void displayNom() const;

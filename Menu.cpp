@@ -35,6 +35,21 @@ JoueurMenu const* Menu::joueurToPointer(std::string const& nom) const
     return sortie;
 }
 
+JoueurMenu * Menu::joueurToPointerPrivate(std::string const& nom)
+{
+    JoueurMenu * sortie(nullptr);
+
+    for(unsigned int i = 0 ; i < m_joueur.size() ; ++i)
+    {
+        if(m_joueur[i].getNom() == nom)
+        {
+            sortie = &m_joueur[i];
+        }
+    }
+
+    return sortie;
+}
+
 
 Menu::Menu()
     :m_joueur(), m_carte()
@@ -105,6 +120,10 @@ short Menu::loadCartes()
                 {
                     m_carte.push_back(new SpecialePermanenteFixe());
                     m_carte[i]->initFichier(fichier);
+                }
+                else
+                {
+                    std::cerr << "Pas type" << std::endl;
                 }
 
                 std::cout << "OK" << std::endl;
@@ -225,7 +244,7 @@ void Menu::saveJoueur()
             }
             else
             {
-                std::cerr << "Error opening element card file" << std::endl;
+                std::cerr << "Error opening element player file" << std::endl;
             }
         }
     }
@@ -265,7 +284,7 @@ void Menu::displayListeJoueurs(std::string avant, JoueurMenu const* sauf) const
     }
 }
 
-void Menu::CreerJoueur()
+void Menu::creerJoueur()
 {
     std::string nom;
     bool tmp(false);
@@ -295,3 +314,58 @@ void Menu::CreerJoueur()
     saveJoueur();
 }
 
+void Menu::modifierJoueur()
+{
+    std::string choix;
+    std::string texte;
+    int intTexte(0);
+    bool continuer(true);
+
+    JoueurMenu * joueur(nullptr);
+
+    system("cls");
+
+    /// Selection du joueur a modifier
+    std::cout << "Joueurs disponible :" << std::endl;
+    displayListeJoueurs("- ");
+    std::cout << std::endl;
+    do
+    {
+        std::cout << "Quel joueur voulez vous modifier : ";
+        getline(std::cin, choix);
+    }while(!existNomJoueur(choix));
+
+    joueur = joueurToPointerPrivate(choix);
+
+    /// Menu modification joueur
+    do
+    {
+        system("cls");
+        std::cout << "Joueur : " << joueur->getNom() << std::endl;
+        std::cout << "0 - Revenir au menu" << std::endl;
+        std::cout << "1 - Acheter des cartes" << std::endl;
+        std::cout << "2 - Creer un deck" << std::endl;
+
+        do
+        {
+            std::cout << "Que voulez-vous faire : ";
+            getline(std::cin, texte);
+            intTexte = atoi(texte.c_str());
+        }while(intTexte < 0 || intTexte > 2);
+
+        switch(intTexte)
+        {
+        case 0:
+            continuer = false;
+            break;
+        case 1:
+
+            break;
+        case 2:
+            joueur->creerDeck();
+            saveJoueur();
+            break;
+        }
+    }while(continuer);
+
+}

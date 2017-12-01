@@ -17,7 +17,7 @@ public:
     static Menu * m_menu;
     static Match * m_match;
 
-    static void lancerMatch();
+    static void initJoueurMatch();
 };
 
 #endif // MENUMATCH_H_INCLUDED

@@ -1,0 +1,6 @@
+SpecialePermanente
+Musique revigorante
+605
+100
+La musique vous relaxe: +10 PV a chaque tour pour la creature en jeu
+5

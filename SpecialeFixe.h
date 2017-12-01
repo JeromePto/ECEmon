@@ -12,24 +12,19 @@
 #include <cstdlib>
 
 #include "CarteFixe.h"
-#include "codeSpeciale.h"
-
-class SpecialePermanenteFixe;
 
 class SpecialeFixe: public CarteFixe {
 protected:
 	std::string m_description;
-	bool permanente;
-	void (*m_code)(Match *);
+	//bool m_permanente;
+	unsigned m_code;
 
 public:
     SpecialeFixe();
-    SpecialeFixe(std::string nom, unsigned int id, unsigned int prix, std::string description, void (*code)(Match * match));
     SpecialeFixe(std::string nom, unsigned int id, unsigned int prix, std::string description, unsigned int numero);
 
     ~SpecialeFixe();
 
-    void init(std::string nom, unsigned int id, unsigned int prix, std::string description, void (*code)(Match * match));
     void init(std::string nom, unsigned int id, unsigned int prix, std::string description, unsigned int numero);
     void initFichier(std::ifstream & fichier);
 
@@ -37,6 +32,8 @@ public:
 
     void displayAll() const;
     void displayNom() const;
+    void displayDescription() const;
+    void displayJeu() const;
 };
 
 #endif //_SPECIALEFIXE_H

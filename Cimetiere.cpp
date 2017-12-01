@@ -5,6 +5,13 @@
 
 #include "Cimetiere.h"
 
-/**
- * Cimetiere implementation
- */
+Cimetiere::Cimetiere()
+    :m_carte()
+{
+
+}
+
+void Cimetiere::ajouterCarte(CarteFixe const* carte)
+{
+    m_carte.push_back(carte);
+}

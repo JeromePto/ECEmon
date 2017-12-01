@@ -1,0 +1,13 @@
+creature
+Dany Boon
+07
+70
+80
+Acteur ch'ti
+2
+ch'ti biloute
+20
+0001
+Baraque a frite
+30
+0002

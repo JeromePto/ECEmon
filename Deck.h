@@ -22,6 +22,7 @@ private:
 
 public:
     Deck();
+    Deck(std::vector<CarteFixe const*> carte, std::string nom);
 
     ~Deck();
 
@@ -32,6 +33,8 @@ public:
     void setPD();
 
     std::string getNom() const;
+    CarteFixe const* at(unsigned pos) const;
+    unsigned size() const;
 
     //affiche tous : carte et leurs contenus
     void displayAll() const;

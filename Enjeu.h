@@ -11,6 +11,11 @@
 class Enjeu {
 private:
 	CarteFixe const* m_carte;
+
+public:
+    Enjeu();
+
+    void init(CarteFixe const* carte);
 };
 
 #endif //_ENJEU_H

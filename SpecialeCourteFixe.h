@@ -14,7 +14,7 @@
 class SpecialeCourteFixe: public SpecialeFixe {
 public:
     SpecialeCourteFixe();
-    SpecialeCourteFixe(std::string nom, unsigned int id, unsigned int prix, std::string description, void (*code)(Match * match));
+    SpecialeCourteFixe(std::string nom, unsigned int id, unsigned int prix, std::string description, unsigned numero);
 
     ~SpecialeCourteFixe();
 

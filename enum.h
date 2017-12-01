@@ -3,10 +3,10 @@
 
 enum {ENERGIE1 = 0, ENERGIE2 = 1, ENERGIE3 = 2, ENERGIE4 = 3, ENERGIEALL = 4};
 
-#define NENERGIE1 "Ener1"
-#define NENERGIE2 "Ener2"
-#define NENERGIE3 "Ener3"
-#define NENERGIE4 "Ener4"
+#define NENERGIE1 "Chanteur"
+#define NENERGIE2 "Musicien"
+#define NENERGIE3 "Peintre"
+#define NENERGIE4 "Acteur"
 
 enum Domaine : short
 {

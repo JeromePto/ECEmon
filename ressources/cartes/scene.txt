@@ -1,0 +1,6 @@
+SpecialeCourte
+Quitter la scene
+603
+100
+Les artistes se retirent: toutes les creatures en jeu sont envoyees au cimetiere
+3

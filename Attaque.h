@@ -28,6 +28,9 @@ public:
     void init(int degats, int energie[5], std::string nom);
     void initFichier(std::ifstream & fichier);
 
+    bool isPossible(int const* tab) const;
+    int getDegats() const;
+
     void dispalayAll() const;
 };
 

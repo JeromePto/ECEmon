@@ -1,0 +1,16 @@
+creature
+Edouard Baer
+08
+100
+170
+Acteur francais
+3
+Je ne crois pas qu'il y ait de bonne ou de mauvaise situation, si je devais resumer ma vie ca serait tout d'abord des rencontres...
+40
+0001
+Des gens qui m'ont tendu la main, peut-etre a un moment ou je ne pouvais pas, ou j'etais seul chez moi.
+50
+0002
+Et c'est assez curieux de se dire que les hasards, les rencontres forgent une destinee...
+70
+0003

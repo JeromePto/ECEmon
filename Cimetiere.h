@@ -13,6 +13,11 @@
 class Cimetiere {
 private:
 	std::deque<CarteFixe const*> m_carte;
+
+public:
+    Cimetiere();
+
+    void ajouterCarte(CarteFixe const* carte);
 };
 
 #endif //_CIMETIERE_H

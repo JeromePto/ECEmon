@@ -1,0 +1,13 @@
+creature
+Ray Charles
+03
+80
+120
+Chanteur pianiste aveugle americain
+2
+Attaque aveuglante
+50
+1100
+Rythme endiable
+50
+0200

@@ -1,6 +1,0 @@
-SpecialePermanente
-Pluie
-6
-200
-Il pleut tres fort
-1

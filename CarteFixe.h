@@ -8,6 +8,8 @@
 
 #include <string>
 #include <fstream>
+#include <ctype.h>
+#include <cstdlib>
 
 class CarteFixe {
 protected:
@@ -22,12 +24,13 @@ public:
     virtual ~CarteFixe();
 
     virtual void init(std::string nom, unsigned int id, unsigned int prix);
-    virtual void initFichier(std::ifstream & fichier) = 0;
+    virtual void initFichier(std::ifstream & fichier);
 
     unsigned int getID() const;
 
     virtual void displayAll() const = 0;
     virtual void displayNom() const = 0;
+    virtual void displayJeu() const = 0;
 };
 
 #endif //_CARTEFIXE_H

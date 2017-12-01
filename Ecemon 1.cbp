@@ -156,8 +156,6 @@
 		<Unit filename="SpecialePermanenteJeu.h">
 			<Option virtualFolder="Match/Headers/" />
 		</Unit>
-		<Unit filename="codeSpeciale.cpp" />
-		<Unit filename="codeSpeciale.h" />
 		<Unit filename="divers.cpp" />
 		<Unit filename="divers.h" />
 		<Unit filename="enum.h" />

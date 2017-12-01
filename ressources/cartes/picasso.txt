@@ -1,0 +1,13 @@
+creature
+Picasso
+05
+90
+120
+Peintre cubiste espagnol
+2
+Tete au carre
+50
+0020
+Poudre de perlimpinture
+70
+0030
