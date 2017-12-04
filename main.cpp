@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <windows.h>
+#include <string>
 
 #include "enum.h"
 #include "divers.h"
@@ -36,20 +37,59 @@ int main()
     Menu menu;
     Match match;
 
-    srand(time(nullptr));
+    srand(static_cast<unsigned>(time(nullptr)));
 
     MenuMatch::m_menu = &menu;
     MenuMatch::m_match = &match;
 
+    Divers::setColor(7, 0);
+
     menu.loadFichier();
 
-    menu.displayCartes();
+    //menu.displayCartes();
+    //system("pause");
 
-    system("pause");
+    ///Menu principal
 
-    //menu.modifierJoueur();
+    std::string texte;
+    int intTexte(0);
+    bool continuer(true);
 
-    match.mainMatch();
+    ///Boucle principale
+    do
+    {
+        system("cls");
+        std::cout << "--------------------- ECEMON ---------------------" << std::endl;
+        std::cout << "0 - Quitter" << std::endl;
+        std::cout << "1 - Jouer" << std::endl;
+        std::cout << "2 - Creer un joueur" << std::endl;
+        std::cout << "3 - Modifier un joueur" << std::endl;
+
+        do
+        {
+            std::cout << "Que voulez-vous faire : ";
+            getline(std::cin, texte);
+            intTexte = atoi(texte.c_str());
+        }while(intTexte < 0 || intTexte > 3 || texte == "");
+
+        switch(intTexte)
+        {
+        case 0:
+            continuer = false;
+            break;
+        case 1:
+            match.mainMatch();
+            menu.saveJoueur();
+            break;
+        case 2:
+            menu.creerJoueur();
+            break;
+        case 3:
+            menu.modifierJoueur();
+            break;
+        }
+
+    }while(continuer);
 
     return 0;
 }

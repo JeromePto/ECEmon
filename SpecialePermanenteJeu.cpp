@@ -17,6 +17,13 @@ void SpecialePermanenteJeu::setSpecialePermanente(SpecialePermanenteFixe const* 
     m_carte = carte;
 }
 
+SpecialePermanenteFixe const* SpecialePermanenteJeu::remplacerSpecialePermanente(SpecialePermanenteFixe const* speciale)
+{
+    SpecialePermanenteFixe const* tmp = m_carte;
+    setSpecialePermanente(speciale);
+    return tmp;
+}
+
 bool SpecialePermanenteJeu::hasSpecialePermanente() const
 {
     bool sortie(false);
@@ -40,4 +47,9 @@ void SpecialePermanenteJeu::display() const
         m_carte->displayNom();
         m_carte->displayDescription();
     }
+}
+
+void SpecialePermanenteJeu::clear()
+{
+    m_carte = nullptr;
 }

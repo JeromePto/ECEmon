@@ -18,10 +18,13 @@ public:
     SpecialePermanenteJeu();
 
     void setSpecialePermanente(SpecialePermanenteFixe const* carte);
+    SpecialePermanenteFixe const* remplacerSpecialePermanente(SpecialePermanenteFixe const* speciale);
 
     bool hasSpecialePermanente() const;
 
     void display() const;
+
+    void clear();
 };
 
 #endif //_SPECIALEPERMANENTEJEU_H

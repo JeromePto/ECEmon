@@ -11,6 +11,7 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
+#include <algorithm>
 
 #include "CarteFixe.h"
 #include "Equivalence.h"
@@ -31,10 +32,16 @@ public:
     void saveFichier(std::ofstream & fichier) const;
 
     void setPD();
+    void retirerCarte(CarteFixe const* carte);
 
     std::string getNom() const;
+    bool deckValide() const;
+
     CarteFixe const* at(unsigned pos) const;
     unsigned size() const;
+    void clear();
+
+    static unsigned getTaille();
 
     //affiche tous : carte et leurs contenus
     void displayAll() const;

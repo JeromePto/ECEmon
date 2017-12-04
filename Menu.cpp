@@ -351,7 +351,7 @@ void Menu::modifierJoueur()
             std::cout << "Que voulez-vous faire : ";
             getline(std::cin, texte);
             intTexte = atoi(texte.c_str());
-        }while(intTexte < 0 || intTexte > 2);
+        }while(intTexte < 0 || intTexte > 2 || texte == "");
 
         switch(intTexte)
         {
@@ -359,13 +359,17 @@ void Menu::modifierJoueur()
             continuer = false;
             break;
         case 1:
-
+            system("cls");
+            std::cout << "Carte du jeu :" << std::endl;
+            std::cout << std::endl;
+            displayCartes();
+            joueur->acheterCarte();
             break;
         case 2:
             joueur->creerDeck();
-            saveJoueur();
             break;
         }
     }while(continuer);
 
+    saveJoueur();
 }

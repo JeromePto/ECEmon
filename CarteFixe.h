@@ -27,6 +27,7 @@ public:
     virtual void initFichier(std::ifstream & fichier);
 
     unsigned int getID() const;
+    unsigned getPrix() const;
 
     virtual void displayAll() const = 0;
     virtual void displayNom() const = 0;

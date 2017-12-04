@@ -92,6 +92,14 @@ int Attaque::getDegats() const
     return m_degats;
 }
 
+void Attaque::augmenterDegats(int degats)
+{
+    if(m_degats + degats >= 0)
+    {
+        m_degats += degats;
+    }
+}
+
 void Attaque::dispalayAll() const
 {
     std::cout << m_nom << std::endl;

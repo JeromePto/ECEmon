@@ -10,6 +10,7 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
+#include <algorithm>
 
 #include "CarteFixe.h"
 #include "Equivalence.h"
@@ -31,6 +32,8 @@ public:
     void setPD();
     std::vector<CarteFixe const*> const& getCartes() const;
     bool existID(int id) const;
+    void ajouterCarte(CarteFixe const* carte);
+    void retirerCarte(CarteFixe const* carte);
 
     void displayAll() const;
     void displayNom() const;

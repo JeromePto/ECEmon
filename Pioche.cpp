@@ -25,8 +25,11 @@ void Pioche::init(Deck const* deck)
 CarteFixe const* Pioche::tirerCarte()
 {
     CarteFixe const* sortie(nullptr);
-    sortie = m_carte.back();
-    m_carte.pop_back();
+    if(m_carte.size() > 0)
+    {
+        sortie = m_carte.back();
+        m_carte.pop_back();
+    }
 
     if(m_compteur > -1)
     {
@@ -59,4 +62,16 @@ bool Pioche::tourComplet()
     }
 
     return sortie;
+}
+
+bool Pioche::hasCarte() const
+{
+    return m_carte.size() > 0;
+}
+
+void Pioche::clear()
+{
+    m_carte.clear();
+    m_compteur = -1;
+    m_taille = 0;
 }

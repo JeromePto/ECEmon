@@ -15,10 +15,12 @@
 #include <sstream>
 #include <algorithm>
 
+#include "CarteFixe.h"
 #include "Collection.h"
 #include "Deck.h"
 
-class JoueurMenu {
+class JoueurMenu
+{
 private:
 	std::string m_nom;
 	Collection m_collection;
@@ -40,6 +42,11 @@ public:
 	bool existNomDeck(std::string const& nom) const;
 	Deck const* deckToPointer(std::string const& nom) const;
 	void creerDeck();
+	void acheterCarte();
+
+	void ajouterCarte(CarteFixe const* carte);
+	void retirerCarte(CarteFixe const* carte);
+	void gagnerArgent(int argent);
 
     //affiche tout : info joueur + deck(s) et contenu + collection et contenu
     void displayAll() const;

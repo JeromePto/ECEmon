@@ -86,10 +86,10 @@ void JoueurMenu::initFichier(std::ifstream& fichier)
 
     for(int i = 0 ; i < nbDeck ; ++i)
     {
+        tmp.clear();
         tmp.initFichier(fichier);
         m_deck.push_back(tmp);
     }
-
 }
 
 void JoueurMenu::saveFichier(std::ofstream& fichier)
@@ -111,23 +111,17 @@ std::string JoueurMenu::getNom() const
 
 void JoueurMenu::creerDeck()
 {
-    unsigned taille(0);
     std::string texte;
     std::string chiffre;
     std::vector<int> input;
     std::vector<CarteFixe const*> carte;
     std::istringstream ligne;
 
-    /// Taille du deck
-    std::ifstream fichier("ressources/info.txt");
-    getline(fichier, texte);
-    getline(fichier, texte);
-    taille = atoi(texte.c_str());
-    fichier.close();
+    system("cls");
 
     m_collection.displayAll();
     std::cout << std::endl;
-    std::cout << "Entrer les id des " << taille << " cartes de votres deck separee par des espaces" << std::endl;
+    std::cout << "Entrer les id des " << Deck::getTaille() << " cartes de votres deck separee par des espaces" << std::endl;
     do
     {
         ligne.clear();
@@ -135,12 +129,12 @@ void JoueurMenu::creerDeck()
         std::cout << "IDs : ";
         std::getline(std::cin, texte);
         ligne.str(texte);
-        for(unsigned i = 0 ; i < taille ; ++i)
+        for(unsigned i = 0 ; i < Deck::getTaille() ; ++i)
         {
             ligne >> chiffre;
             input.push_back(atoi(chiffre.c_str()));
         }
-    }while(!isInCollection(input, m_collection, carte, taille));
+    }while(!isInCollection(input, m_collection, carte, Deck::getTaille()));
 
     std::cout << "Donnez un nom au deck : ";
     getline(std::cin, texte);
@@ -148,6 +142,88 @@ void JoueurMenu::creerDeck()
     m_deck.push_back(Deck(carte, texte));
 }
 
+void JoueurMenu::acheterCarte()
+{
+    std::string texte;
+    int input(0);
+    bool continuer(true);
+    CarteFixe const* carte(nullptr);
+
+    std::cout << "Vos cartes :" << std::endl;
+    m_collection.displayAll();
+    std::cout << "Votre argent : " << m_argent << std::endl;
+
+    do
+    {
+    //Boucle de saisie
+        texte.clear();
+        do
+        {
+            std::cout << "Taper l'id de la carte que vous voulez acheter ou 0 pour ne rien acheter" << std::endl;
+            std::cout << "IDs : ";
+            getline(std::cin, texte);
+            if(texte == "0")
+            {
+                continuer = false;
+                break;
+            }
+            input = atoi(texte.c_str());
+        }while(Equivalence::toPointer(input) == nullptr || texte == "");
+
+        if(Equivalence::toPointer(input) != nullptr && continuer != false)
+        {
+            carte = Equivalence::toPointer(input);
+            if(static_cast<int>(carte->getPrix()) <= m_argent)
+            {
+                m_collection.ajouterCarte(carte);
+                m_argent -= carte->getPrix();
+
+                std::cout << "Vous avez acheter : " << std::endl;
+                carte->displayAll();
+                std::cout << "Il vous reste " << m_argent << " d'argent" << std::endl;
+            }
+            else
+            {
+                std::cout << "Vous n'avez pas asser d'argent pour acheter cette carte :" << std::endl;
+                carte->displayAll();
+            }
+
+            texte.clear();
+            std::cout << "Voulez-vous continuer vos achat : ";
+            getline(std::cin, texte);
+
+            if(texte == "oui" || texte == "o" || texte == "1")
+            {
+                continuer = true;
+            }
+            else
+            {
+                continuer = false;
+            }
+        }
+
+    }while(continuer);
+
+}
+
+void JoueurMenu::ajouterCarte(CarteFixe const* carte)
+{
+    m_collection.ajouterCarte(carte);
+}
+
+void JoueurMenu::retirerCarte(CarteFixe const* carte)
+{
+    m_collection.retirerCarte(carte);
+    for(unsigned i = 0 ; i < m_deck.size() ; ++i)
+    {
+        m_deck[i].retirerCarte(carte);
+    }
+}
+
+void JoueurMenu::gagnerArgent(int argent)
+{
+    m_argent += argent;
+}
 
 void JoueurMenu::displayAll() const
 {
@@ -171,6 +247,7 @@ void JoueurMenu::displayCourt() const
     for(unsigned int i = 0 ; i < m_deck.size() ; ++i)
     {
         m_deck[i].displayNom();
+        std::cout << std::endl;
     }
 }
 

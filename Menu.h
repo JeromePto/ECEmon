@@ -27,7 +27,10 @@
 
 #include "MenuMatch.h"
 
-class Menu {
+class Menu
+{
+    friend MenuMatch;
+
 private:
 	std::vector<JoueurMenu> m_joueur;
 	std::vector<CarteFixe*> m_carte;

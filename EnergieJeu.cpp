@@ -54,6 +54,28 @@ int const* EnergieJeu::getEnergie() const
     return m_energie;
 }
 
+unsigned EnergieJeu::getNombreEnergie() const
+{
+    return m_carte.size();
+}
+
+EnergieFixe const* EnergieJeu::enleverEnergie(unsigned pos)
+{
+    EnergieFixe const* sortie(nullptr);
+
+    if(pos >= 0 && pos < getNombreEnergie())
+    {
+        sortie = m_carte.at(pos);
+        m_carte.erase(m_carte.begin() + pos);
+    }
+    else
+    {
+        std::cerr << "acces energie innexistante" << std::endl;
+    }
+
+    return sortie;
+}
+
 void EnergieJeu::display() const
 {
     std::cout << "Energie :" << std::endl;
@@ -61,4 +83,13 @@ void EnergieJeu::display() const
     std::cout << "- " << NENERGIE2 << " = " << getNombreEnergie(1) << std::endl;
     std::cout << "- " << NENERGIE3 << " = " << getNombreEnergie(2) << std::endl;
     std::cout << "- " << NENERGIE4 << " = " << getNombreEnergie(3) << std::endl;
+}
+
+void EnergieJeu::clear()
+{
+    m_carte.clear();
+    for(short i = 0 ; i < 4 ; ++i)
+    {
+        m_energie[i] = 0;
+    }
 }

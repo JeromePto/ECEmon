@@ -14,6 +14,7 @@
 
 #include "CarteFixe.h"
 #include "Attaque.h"
+#include "EnergieJeu.h"
 
 class CreatureFixe: public CarteFixe {
 private:

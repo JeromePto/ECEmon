@@ -72,9 +72,24 @@ void Deck::setPD()
     }
 }
 
+void Deck::retirerCarte(CarteFixe const* carte)
+{
+    std::vector<CarteFixe const*>::iterator it;
+    it = find(m_carte.begin(), m_carte.end(), carte);
+    if(it != m_carte.end())
+    {
+        m_carte.erase(it);
+    }
+}
+
 std::string Deck::getNom() const
 {
     return m_nom;
+}
+
+bool Deck::deckValide() const
+{
+    return getTaille() == m_carte.size();
 }
 
 CarteFixe const* Deck::at(unsigned pos) const
@@ -90,6 +105,30 @@ CarteFixe const* Deck::at(unsigned pos) const
 unsigned Deck::size() const
 {
     return m_carte.size();
+}
+
+void Deck::clear()
+{
+    m_carte.clear();
+    m_nom.clear();
+}
+
+unsigned Deck::getTaille()
+{
+    static unsigned taille(0);
+
+    std::string texte;
+
+    if(taille == 0)
+    {
+        std::ifstream fichier("ressources/info.txt");
+        getline(fichier, texte);
+        getline(fichier, texte);
+        taille = atoi(texte.c_str());
+        fichier.close();
+    }
+
+    return taille;
 }
 
 void Deck::displayAll() const

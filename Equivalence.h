@@ -7,7 +7,6 @@
 #include "CarteFixe.h"
 
 
-
 namespace Equivalence
 {
     void init(std::vector<CarteFixe*> carte);

@@ -16,7 +16,6 @@
 class SpecialeFixe: public CarteFixe {
 protected:
 	std::string m_description;
-	//bool m_permanente;
 	unsigned m_code;
 
 public:
@@ -29,6 +28,8 @@ public:
     void initFichier(std::ifstream & fichier);
 
     virtual bool isPermanente() const = 0;
+
+    unsigned getCode() const;
 
     void displayAll() const;
     void displayNom() const;

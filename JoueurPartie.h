@@ -20,12 +20,19 @@
 #include "SpecialePermanenteJeu.h"
 #include "EnergieJeu.h"
 #include "CarteFixe.h"
+#include "CodeSpeciale.h"
+#include "divers.h"
 
-class JoueurPartie {
+class JoueurPartie
+{
+
+    friend CodeSpeciale;
+
 private:
 	Deck const* m_deck;
 	int m_PV;
 	std::string m_nom;
+	bool m_AI;
 
 	Pioche m_pioche;
 	Enjeu m_enjeu;
@@ -34,19 +41,28 @@ private:
 	EnergieJeu m_energie;
 	CreatureJeu m_creature;
 
+	CodeSpeciale m_codeSpeciale;
+
 public:
     JoueurPartie();
+    ~JoueurPartie();
     void preInit(std::string const& nom, Deck const* deck);
-    void init();
+    void preInitAI();
+    void init(JoueurPartie & ennemi);
 
     std::string getNom() const;
     int getPV() const;
+    bool getAI() const;
+    CarteFixe const* getEnjeu() const;
 
     void displayPlateau() const;
     void displayAutreJoueur() const;
 
     int jouer(JoueurPartie & ennemi);
+    int jouerAI(JoueurPartie & ennemi);
     bool recevoirDegats(int degats);
+
+    void clear();
 };
 
 #endif //_JOUEURPARTIE_H

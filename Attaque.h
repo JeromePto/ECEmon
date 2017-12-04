@@ -31,6 +31,8 @@ public:
     bool isPossible(int const* tab) const;
     int getDegats() const;
 
+    void augmenterDegats(int degats);
+
     void dispalayAll() const;
 };
 

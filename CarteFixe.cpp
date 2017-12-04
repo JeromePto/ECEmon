@@ -27,6 +27,10 @@ unsigned int CarteFixe::getID() const
     return m_id;
 }
 
+unsigned CarteFixe::getPrix() const
+{
+    return m_prix;
+}
 
 void CarteFixe::init(std::string nom, unsigned int id, unsigned int prix)
 {

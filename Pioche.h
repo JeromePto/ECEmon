@@ -28,6 +28,9 @@ public:
 
     void debutCompte();
     bool tourComplet();
+    bool hasCarte() const;
+
+    void clear();
 };
 
 #endif //_PIOCHE_H

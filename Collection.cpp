@@ -83,6 +83,21 @@ bool Collection::existID(int id) const
     return sortie;
 }
 
+void Collection::ajouterCarte(CarteFixe const* carte)
+{
+    m_carte.push_back(carte);
+}
+
+void Collection::retirerCarte(CarteFixe const* carte)
+{
+    std::vector<CarteFixe const*>::iterator it;
+    it = find(m_carte.begin(), m_carte.end(), carte);
+    if(it != m_carte.end())
+    {
+        m_carte.erase(it);
+    }
+}
+
 void Collection::displayAll() const
 {
     std::cout << "Collection : " << m_carte.size() << " cartes" << std::endl << std::endl;

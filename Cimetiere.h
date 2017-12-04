@@ -18,6 +18,9 @@ public:
     Cimetiere();
 
     void ajouterCarte(CarteFixe const* carte);
+    CarteFixe const* recupererCarte();
+
+    void clear();
 };
 
 #endif //_CIMETIERE_H

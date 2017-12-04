@@ -7,7 +7,7 @@
 #include "JoueurPartie.h"
 
 CreatureJeu::CreatureJeu()
-    :m_carte(nullptr), m_PV(0), m_attaque()
+    :m_carte(nullptr), m_PV(0), m_attaque(), m_memeCreature(true)
 {
 
 }
@@ -26,14 +26,40 @@ CreatureFixe const* CreatureJeu::remplacerCreature(CreatureFixe const* creature)
     return tmp;
 }
 
+CreatureFixe const* CreatureJeu::mourir()
+{
+    CreatureFixe const* tmp = m_carte;
+
+    m_carte = nullptr;
+    m_attaque.clear();
+    m_PV = 0;
+    m_memeCreature = false;
+
+    return tmp;
+}
+
 int CreatureJeu::getNombreAttaque() const
 {
     return m_attaque.size();
 }
 
-bool CreatureJeu::attaquePossible(int attaque, EnergieJeu const& energie)
+bool CreatureJeu::attaquePossible(int attaque, EnergieJeu const& energie) const
 {
     return m_attaque[attaque].isPossible(energie.getEnergie());
+}
+
+bool CreatureJeu::attaquePossible(EnergieJeu const& energie) const
+{
+    bool sortie(false);
+
+    for(short i = 0 ; i < getNombreAttaque() ; i++)
+    {
+        if(m_attaque[i].isPossible(energie.getEnergie()))
+        {
+            sortie = true;
+        }
+    }
+    return sortie;
 }
 
 int CreatureJeu::recevoirDegats(int degats)
@@ -53,12 +79,6 @@ int CreatureJeu::recevoirDegats(int degats)
     return sortie;
 }
 
-void CreatureJeu::mourir()
-{
-    m_carte = nullptr;
-    m_attaque.clear();
-    m_PV = 0;
-}
 
 int CreatureJeu::attaquer(int attaque, JoueurPartie & ennemi)
 {
@@ -68,6 +88,29 @@ int CreatureJeu::attaquer(int attaque, JoueurPartie & ennemi)
         sortie = 1;
     }
     return sortie;
+}
+
+void CreatureJeu::setReference()
+{
+    m_memeCreature = true;
+}
+
+bool CreatureJeu::getMemeCreature() const
+{
+    return m_memeCreature;
+}
+
+void CreatureJeu::augmenterDegats(int degats)
+{
+    for(unsigned short i = 0 ; i < m_attaque.size() ; i++)
+    {
+        m_attaque[i].augmenterDegats(degats);
+    }
+}
+
+void CreatureJeu::augmenterPV(int PV)
+{
+    m_PV += PV;
 }
 
 bool CreatureJeu::hasCreature() const
@@ -109,3 +152,10 @@ void CreatureJeu::displayAttaque() const
     }
 }
 
+void CreatureJeu::clear()
+{
+    m_carte = nullptr;
+    m_PV = 0;
+    m_attaque.clear();
+    m_memeCreature = false;
+}

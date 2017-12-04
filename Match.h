@@ -20,13 +20,15 @@ private:
 	JoueurPartie m_joueur1;
 	JoueurPartie m_joueur2;
 
-	void preMatch();
+	bool preMatch();
 	void postMatch(int gagnant);
 
 public:
     Match();
 
     void mainMatch();
+
+    void clear();
 };
 
 #endif //_MATCH_H

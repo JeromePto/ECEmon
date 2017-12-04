@@ -45,6 +45,11 @@ void SpecialeFixe::initFichier(std::ifstream& fichier)
     m_code = atoi(ligne.c_str());
 }
 
+unsigned SpecialeFixe::getCode() const
+{
+    return m_code;
+}
+
 void SpecialeFixe::displayAll() const
 {
     std::cout << "Speciale : " << m_nom << std::endl;
